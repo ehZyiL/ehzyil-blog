@@ -1,0 +1,66 @@
+package com.ehzyil.domain;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author ehzyil
+ * @since 2023-09-25
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("t_comment")
+@ApiModel(value="Comment对象", description="")
+public class Comment implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "评论id")
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+
+    @ApiModelProperty(value = "类型 (1文章 2友链 3说说)")
+    private Boolean commentType;
+
+    @ApiModelProperty(value = "类型id (类型为友链则没有值)")
+    private Integer typeId;
+
+    @ApiModelProperty(value = "父评论id")
+    private Integer parentId;
+
+    @ApiModelProperty(value = "回复评论id")
+    private Integer replyId;
+
+    @ApiModelProperty(value = "评论内容")
+    private String commentContent;
+
+    @ApiModelProperty(value = "评论用户id")
+    private Integer fromUid;
+
+    @ApiModelProperty(value = "回复用户id")
+    private Integer toUid;
+
+    @ApiModelProperty(value = "是否通过 (0否 1是)")
+    private Boolean isCheck;
+
+    @ApiModelProperty(value = "评论时间")
+    private LocalDateTime createTime;
+
+    @ApiModelProperty(value = "更新时间")
+    private LocalDateTime updateTime;
+
+
+}
