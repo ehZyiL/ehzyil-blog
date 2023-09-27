@@ -2,17 +2,19 @@ package com.ehzyil.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.Comment;
 import com.ehzyil.domain.Talk;
+import com.ehzyil.domain.User;
 import com.ehzyil.mapper.CommentMapper;
 import com.ehzyil.mapper.TalkMapper;
 import com.ehzyil.model.vo.CommentCountVO;
 import com.ehzyil.model.vo.PageResult;
 import com.ehzyil.model.vo.TalkVO;
 import com.ehzyil.service.ITalkService;
+import com.ehzyil.service.IUserService;
 import com.ehzyil.utils.HTMLUtils;
+import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,9 @@ import java.util.stream.Collectors;
 public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements ITalkService {
     @Autowired
     private CommentMapper commentMapper;
+
+    @Autowired
+    private IUserService userService;
 
     @Override
     public List<String> listTalkHome() {
@@ -56,23 +61,42 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
 
     @Override
     public PageResult<TalkVO> listTalkVO(Long current, Long size) {
-        //查询说说
-        LambdaQueryWrapper<Talk> talkLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        talkLambdaQueryWrapper
-                .eq(Talk::getStatus, "1")
-                .orderByDesc(Talk::getIsTop)
-                .orderByDesc(Talk::getId);
+//        //查询说说
+//        LambdaQueryWrapper<Talk> talkLambdaQueryWrapper = new LambdaQueryWrapper<>();
+//        talkLambdaQueryWrapper
+//                .eq(Talk::getStatus, "1")
+//                .orderByDesc(Talk::getIsTop)
+//                .orderByDesc(Talk::getId);
+//
+//
+//        //分页查询说说
+//        Page<Talk> page = new Page<>();
+//        page.setCurrent(current);
+//        page.setSize(size);
+//        page(page, talkLambdaQueryWrapper);
+//
+//        List<Talk> talkList = page.getRecords();
+//
+//        //获取说说id列表
+//        List<Integer> userIdList = talkList.stream().map(Talk::getUserId).collect(Collectors.toList());
+//        // 查询用户头像 昵称
+//        LambdaQueryWrapper<User> userLambdaQueryWrapper=new LambdaQueryWrapper<User>();
+//        userLambdaQueryWrapper.select(User::getId,User::getAvatar,User::getNickname).in(User::getId,userIdList);
+//        List<User> userList = userService.getBaseMapper().selectList(userLambdaQueryWrapper);
 
-        //分页查询说说
-        Page<Talk> page = new Page<>();
-        page.setCurrent(current);
-        page.setSize(size);
-        page(page, talkLambdaQueryWrapper);
+        // 查询说说总量
+        Long count = getBaseMapper().selectCount((new LambdaQueryWrapper<Talk>()
+                .eq(Talk::getStatus, "1")));
 
-        List<Talk> talkList = page.getRecords();
+        if (count == 0) {
+            return new PageResult<>();
+        }
+
+        List<TalkVO> talkVOS = getBaseMapper().selectTalkList(PageUtils.getLimit(), PageUtils.getSize());
 
         //获取说说id列表
-        List<Integer> typeIdList = talkList.stream().map(Talk::getId).collect(Collectors.toList());
+        List<Integer> typeIdList = talkVOS.stream().map(TalkVO::getId).collect(Collectors.toList());
+
         // 查询说说评论量
         List<CommentCountVO> commentCountVOS = commentMapper.selectCommentCountByTypeId(typeIdList, "3");
         //转换为Map key为talkId value为评论数
@@ -83,12 +107,13 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
 
         List<TalkVO> talkVOList = new ArrayList<>();
         // 封装说说
-        talkList.forEach(talk -> {
+        talkVOS.forEach(talk -> {
             TalkVO talkVO = new TalkVO();
             BeanUtils.copyProperties(talk, talkVO);
 
             talkVO.setCommentCount(Optional.ofNullable(commentCountMap.get(talkVO.getId())).orElse(0));
             talkVO.setLikeCount(0);
+
             // 转换图片格式
             if (Objects.nonNull(talk.getImages())) {
                 List<String> list = JSON.parseObject(talk.getImages(), List.class);
@@ -97,15 +122,21 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
             talkVOList.add(talkVO);
         });
 
-        return new PageResult<>(talkVOList, page.getTotal());
+        return new PageResult<>(talkVOList, count);
     }
 
     @Override
     public TalkVO getTalkById(Long talkId) {
         Talk talk = getBaseMapper().selectById(talkId);
-
         TalkVO talkVO = new TalkVO();
-        BeanUtils.copyProperties(talk,talkVO);
+        BeanUtils.copyProperties(talk, talkVO);
+        // 查询用户头像 昵称
+        User user = userService.getBaseMapper().selectOne(
+                new LambdaQueryWrapper<User>().
+                        select(User::getId, User::getAvatar, User::getNickname)
+                        .eq(User::getId, talk.getUserId()));
+        talkVO.setAvatar(Optional.ofNullable(user.getAvatar()).orElse(""));
+        talkVO.setNickname(Optional.ofNullable(user.getNickname()).orElse(""));
 
         // 查询说说评论量
         long count = commentMapper.selectCount(new LambdaQueryWrapper<Comment>()

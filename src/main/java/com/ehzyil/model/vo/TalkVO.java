@@ -1,5 +1,6 @@
 package com.ehzyil.model.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -32,7 +33,12 @@ public class TalkVO {
     private String avatar;
     @ApiModelProperty(value = "说说内容")
     private String talkContent;
-    @ApiModelProperty(value = "说说图片")
+
+    @JsonIgnore
+    @ApiModelProperty(value = "图片")
+    private String images;
+
+    @ApiModelProperty(value = "说说图片列表")
     private List<String> imgList;
     @ApiModelProperty(value = "是否置顶")
     private Integer isTop;
