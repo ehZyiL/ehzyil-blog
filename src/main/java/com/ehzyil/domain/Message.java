@@ -1,12 +1,12 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -48,13 +48,18 @@ public class Message implements Serializable {
     private String ipSource;
 
     @ApiModelProperty(value = "是否通过 (0否 1是)")
-    private Boolean isCheck;
+    private Integer isCheck;
 
-    @ApiModelProperty(value = "留言时间")
+    /**
+     * 留言时间
+     */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @ApiModelProperty(value = "更新时间")
+    /**
+     * 更新时间
+     */
+    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
-
 
 }

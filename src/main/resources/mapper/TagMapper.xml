@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ehzyil.mapper.TagMapper">
-
+    <select id="selectTagVO" resultType="com.ehzyil.model.vo.TagVo">
+        select t.id, t.tag_name, count(a.id) tagCount
+        from t_tag t
+                 left join t_article_tag tat on t.id = tat.tag_id
+                 left join (select id from t_article) a on tat.article_id = a.id
+        group by t.id, t.tag_name
+    </select>
 </mapper>

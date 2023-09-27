@@ -77,3 +77,6 @@ mybatis-plus:
     db-config:
       # 数据库表前缀
       table-prefix: t_
+
+# B站图片上传链接
+bili-url: https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs

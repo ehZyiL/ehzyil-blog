@@ -2,6 +2,9 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Tag;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.model.vo.TagVo;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface TagMapper extends BaseMapper<Tag> {
 
+
+    /**
+     * 前端查询标签列表
+     * @return
+     */
+    List<TagVo> selectTagVO();
 }

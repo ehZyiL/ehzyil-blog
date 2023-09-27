@@ -2,6 +2,9 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Message;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.model.vo.MessageVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface MessageMapper extends BaseMapper<Message> {
 
+    List<MessageVO> selectMessageVoList();
 }

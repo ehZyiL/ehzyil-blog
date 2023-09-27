@@ -2,6 +2,9 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.vo.CategoryVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICategoryService extends IService<Category> {
 
+    List<CategoryVO> listCategoryVO();
 }

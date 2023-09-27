@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author ehzyil
- * @since 2023-09-25
+ * @since 2023-09-26
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -43,6 +43,8 @@ public class Article implements Serializable {
 
     @ApiModelProperty(value = "文章标题")
     private String articleTitle;
+
+    private String articleDescription;
 
     @ApiModelProperty(value = "文章内容")
     private String articleContent;
