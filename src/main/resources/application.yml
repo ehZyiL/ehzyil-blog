@@ -40,6 +40,11 @@ spring:
       test-on-borrow: false
       # 设置从连接池归还连接时是否检查连接有效性，true检查，false不检查
       test-on-return: false
+  # 文件上传限制
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
 
   # redis配置
   redis:
@@ -84,6 +89,35 @@ mybatis-plus:
       # 数据库表前缀
       table-prefix: t_
 
+# 文件上传策略 local、oss、cos
+upload:
+  strategy: qiniu
+  local:
+    # nginx映射本地文件路径
+    url: https://localhost/
+    # 本地文件存储路径
+    path: /usr/local/upload/
+  # oss存储
+  oss:
+    url: http://Bucket域名/
+    endpoint: OSS配置endpoint
+    bucketName: OSS配置bucketName
+    accessKeyId: OSS配置accessKeyId
+    accesskeySecret: OSS配置accesskeySecret
+  # cos存储
+  cos:
+    url: https://Bucket域名/
+    secretId: COS配置secretId
+    secretKey: COS配置secretKey
+    region: COS配置region
+    bucketName: COS配置bucketName
+  # qiniu存储(七牛云)
+  qiniu:
+    url: http://s14jjz3r5.hb-bkt.clouddn.com/  # 访问域名(给存储桶绑定的二级域名)
+    bucketName: ehzyil-blog # 空间名称bucketName
+    region: huabei # 存储区域 华南(huanan) 华北(huabei)...
+    accessKey: CSOFmR7_70ThEOZqlgTdbe2HnvOjbjPdCHt8CZrb  #accessKey
+    secretKey: _D-S6V1rBT2jjnZrX-Z_s30Aw6SNO1ydOFYHnUoC  #secretKey
 
 
 

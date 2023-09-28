@@ -13,12 +13,15 @@ import com.ehzyil.model.dto.UserPasswordDTO;
 import com.ehzyil.model.vo.UserInfoVO;
 import com.ehzyil.service.IUserService;
 import com.ehzyil.service.RedisService;
+import com.ehzyil.strategy.context.UploadStrategyContext;
 import com.ehzyil.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.ehzyil.constant.RedisConstant.CODE_KEY;
+import static com.ehzyil.enums.FilePathEnum.AVATAR;
 
 /**
  * <p>
@@ -32,6 +35,10 @@ import static com.ehzyil.constant.RedisConstant.CODE_KEY;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
     @Autowired
     private RedisService redisService;
+
+
+    @Autowired
+    private UploadStrategyContext uploadStrategyContext;
 
     @Override
     public UserInfoVO getUserInfo() {
@@ -96,6 +103,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         getBaseMapper().update(new User(), new LambdaUpdateWrapper<User>()
                 .set(User::getPassword, SecurityUtils.sha256Encrypt(userPasswordDTO.getPassword()))
                 .eq(User::getUsername, userPasswordDTO.getUsername()));
+    }
+
+    @Override
+    public String updateAvatar(MultipartFile multipartFile) {
+        //头像上传
+        String avatar=uploadStrategyContext.executeUploadStrategy(multipartFile,AVATAR.getPath());
+
+        //更新用户头像
+        User user=User.builder()
+                .id(StpUtil.getLoginIdAsInt())
+                .avatar(avatar)
+                .build();
+        getBaseMapper().updateById(user);
+        return avatar;
     }
 
     /**

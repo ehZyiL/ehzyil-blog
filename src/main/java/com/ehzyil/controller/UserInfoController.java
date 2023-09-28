@@ -12,10 +12,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.channels.MulticastChannel;
 
 /**
  * @author ehyzil
@@ -70,6 +70,13 @@ public class UserInfoController {
         return Result.success();
     }
 
+    @ApiOperation(value = "修改用户头像")
+    @PostMapping("/user/avatar")
+//    @SaCheckPermission(value = "user:avatar:update")
+    public Result<String> updateAvatar(@RequestParam(value = "file")  MultipartFile file) {
+
+        return Result.success(userService.updateAvatar(file));
+    }
 
 
 }

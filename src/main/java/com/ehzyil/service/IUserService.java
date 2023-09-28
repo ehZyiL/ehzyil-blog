@@ -6,6 +6,7 @@ import com.ehzyil.model.dto.EmailDTO;
 import com.ehzyil.model.dto.UserInfoDTO;
 import com.ehzyil.model.dto.UserPasswordDTO;
 import com.ehzyil.model.vo.UserInfoVO;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -31,4 +32,6 @@ public interface IUserService extends IService<User> {
     void updateUserEmail(EmailDTO email);
 
     void updatePassword(UserPasswordDTO userPasswordDTO);
+
+    String updateAvatar(MultipartFile multipartFile);
 }

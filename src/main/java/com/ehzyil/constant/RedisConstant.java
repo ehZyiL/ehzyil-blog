@@ -1,9 +1,9 @@
 package com.ehzyil.constant;
 
 /**
- * @author ehyzil
- * @Description Redis常量
- * @create 2023-09-2023/9/27-15:43
+ * Redis常量
+ *
+ * @author ican
  */
 public class RedisConstant {
 

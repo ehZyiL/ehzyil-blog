@@ -12,5 +12,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-09-25
  */
 public interface ISiteConfigService extends IService<SiteConfig> {
-
+    /**
+     * 获取网站配置
+     * @return
+     */
+    SiteConfig getSiteConfig();
 }
