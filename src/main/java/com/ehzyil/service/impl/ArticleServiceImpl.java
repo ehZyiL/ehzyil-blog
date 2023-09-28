@@ -85,10 +85,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
         // 查询浏览量
         //TODO
-
+        articleVO.setLikeCount(0);
         // 查询点赞量
         //TODO
-
+        articleVO.setLikeCount(0);
         return articleVO;
     }
 

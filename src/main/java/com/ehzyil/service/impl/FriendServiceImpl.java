@@ -2,9 +2,12 @@ package com.ehzyil.service.impl;
 
 import com.ehzyil.domain.Friend;
 import com.ehzyil.mapper.FriendMapper;
+import com.ehzyil.model.vo.FriendVO;
 import com.ehzyil.service.IFriendService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,4 +20,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> implements IFriendService {
 
+    @Override
+    public List<FriendVO> listFriendVO() {
+        return getBaseMapper(). selectFriendVOList();
+    }
 }

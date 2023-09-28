@@ -2,6 +2,9 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Friend;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.vo.FriendVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IFriendService extends IService<Friend> {
 
+    /**
+     * 查看友链列表
+     *
+     * @return 友链列表
+     */
+    List<FriendVO> listFriendVO();
 }

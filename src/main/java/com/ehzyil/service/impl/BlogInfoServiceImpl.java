@@ -61,8 +61,9 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         //生成唯一用户标识
         String flag = ipAddress + browser + os;
         String md5 = DigestUtils.md5DigestAsHex(flag.getBytes());
+        Boolean aBoolean = redisService.hasSetValue(UNIQUE_VISITOR, md5);
         //判断是否访问
-        if (redisService.hasHashValue(UNIQUE_VISITOR, md5)) {
+        if (!redisService.hasSetValue(UNIQUE_VISITOR, md5)) {
             //访问量+1
             redisService.incr(BLOG_VIEW_COUNT, 1);
             //保存唯一标识

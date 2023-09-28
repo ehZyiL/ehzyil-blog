@@ -2,6 +2,9 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Friend;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.model.vo.FriendVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface FriendMapper extends BaseMapper<Friend> {
 
+    /**
+     * 查看友链列表
+     *
+     * @return 友链列表
+     */
+    List<FriendVO> selectFriendVOList();
 }
