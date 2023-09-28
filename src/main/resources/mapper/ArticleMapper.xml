@@ -40,6 +40,24 @@
         </collection>
     </resultMap>
 
+    <resultMap id="articleConditionVO" type="com.ehzyil.model.vo.ArticleConditionVO">
+        <id column="id" property="id"/>
+        <result column="article_cover" property="articleCover"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="create_time" property="createTime"/>
+        <!-- 一对一-->
+        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+            <id column="category_id" property="id"/>
+            <result column="category_name" property="categoryName"/>
+        </association>
+
+        <!-- 一对多-->
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
     <select id="selectArticleHomeList" resultMap="articleHomeVO">
         select article_id,
                article_cover,
@@ -131,7 +149,7 @@
     </select>
 
 
-    <select id="listArticleByCondition" resultType="com.ehzyil.model.vo.ArticleConditionVO">
+    <select id="listArticleByCondition" resultMap="articleConditionVO">
         SELECT a.id,
         article_cover,
         article_title,

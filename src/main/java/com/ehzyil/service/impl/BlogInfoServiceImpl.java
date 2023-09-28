@@ -75,7 +75,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     public BlogInfoVO getBlogInfo() {
         //文章数量
         Long articleCount = articleMapper.selectCount(new LambdaQueryWrapper<Article>()
-                .eq(Article::getStatus, PUBLIC)
+                .eq(Article::getStatus, PUBLIC.getStatus())
                 .eq(Article::getIsDelete, FALSE));
         // 分类数量
         Long categoryCount = categoryMapper.selectCount(null);

@@ -42,7 +42,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     public ArticleConditionList listArticleCategory(ConditionDTO condition) {
 
         //查询符合条件的文章
-        List<ArticleConditionVO> articleConditionVOS = articleMapper.listArticleByCondition(PageUtils.getLimit(), PageUtils.getLimit(), condition);
+        List<ArticleConditionVO> articleConditionVOS = articleMapper.listArticleByCondition(
+                PageUtils.getLimit(), PageUtils.getSize(), condition);
         //查询分类名称
         String categoryName = getBaseMapper().selectOne(
                 new LambdaQueryWrapper<Category>()
