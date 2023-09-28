@@ -2,6 +2,8 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.ArticleConditionList;
 import com.ehzyil.model.vo.CategoryVO;
 
 import java.util.List;
@@ -17,4 +19,11 @@ import java.util.List;
 public interface ICategoryService extends IService<Category> {
 
     List<CategoryVO> listCategoryVO();
+
+    /**
+     * 查看分类下的文章
+     * @param condition
+     * @return
+     */
+    ArticleConditionList listArticleCategory(ConditionDTO condition);
 }

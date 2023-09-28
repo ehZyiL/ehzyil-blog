@@ -1,6 +1,8 @@
 package com.ehzyil.controller;
 
 
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.ArticleConditionList;
 import com.ehzyil.model.vo.CategoryOptionVO;
 import com.ehzyil.model.vo.CategoryVO;
 import com.ehzyil.model.vo.Result;
@@ -35,5 +37,11 @@ public class CategoryController {
     @GetMapping("/category/list")
     public Result<List<CategoryVO>> listCategoryVO() {
         return Result.success(categoryService.listCategoryVO());
+    }
+
+    @ApiOperation(value = "查看分类下的文章")
+    @GetMapping("/category/article")
+    public Result<ArticleConditionList> listArticleCategory(ConditionDTO condition) {
+        return Result.success(categoryService.listArticleCategory(condition));
     }
 }

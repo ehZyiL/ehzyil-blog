@@ -129,4 +129,31 @@
           AND id &gt; #{articleId}
         ORDER BY id DESC LIMIT 1
     </select>
+
+
+    <select id="listArticleByCondition" resultType="com.ehzyil.model.vo.ArticleConditionVO">
+        SELECT a.id,
+        article_cover,
+        article_title,
+        a.create_time,
+        c.id AS category_id,
+        c.category_name,
+        t.id AS tag_id,
+        tag_name
+        FROM t_article a
+        INNER JOIN t_category c ON a.category_id = c.id
+        INNER JOIN t_article_tag tat ON a.id = tat.article_id
+        INNER JOIN t_tag t ON tat.tag_id = t.id
+        <where>
+            is_delete = 0 and `status` = 1
+            <if test="condition.categoryId != null">
+                and category_id = #{condition.categoryId}
+            </if>
+            <if test="condition.tagId != null">
+                and tag_id = #{condition.tagId}
+            </if>
+        </where>
+        ORDER BY a.id DESC
+        LIMIT #{limit}, #{size}
+    </select>
 </mapper>

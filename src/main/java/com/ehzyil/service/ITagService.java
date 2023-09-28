@@ -2,6 +2,8 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Tag;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.ArticleConditionList;
 import com.ehzyil.model.vo.TagVo;
 
 import java.util.List;
@@ -17,4 +19,11 @@ import java.util.List;
 public interface ITagService extends IService<Tag> {
 
     List<TagVo> listTagVO();
+
+    /**
+     * 查看标签下的文章
+     * @param condition
+     * @return
+     */
+    ArticleConditionList listArticleTag(ConditionDTO condition);
 }

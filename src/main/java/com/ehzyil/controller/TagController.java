@@ -1,6 +1,8 @@
 package com.ehzyil.controller;
 
 
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.ArticleConditionList;
 import com.ehzyil.model.vo.CategoryVO;
 import com.ehzyil.model.vo.Result;
 import com.ehzyil.model.vo.TagVo;
@@ -36,6 +38,19 @@ public class TagController {
     @GetMapping("/tag/list")
     public Result<List<TagVo>> listTagVO() {
         return Result.success(tagService.listTagVO());
+    }
+
+    /**
+     * 查看标签下的文章
+     *
+     * @param condition 查询条件
+     * @return 文章列表
+     */
+
+    @ApiOperation(value = "查看标签下的文章")
+    @GetMapping("/tag/article")
+    public Result<ArticleConditionList> listArticleTag(ConditionDTO condition) {
+        return Result.success(tagService.listArticleTag(condition));
     }
 
 }
