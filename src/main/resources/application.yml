@@ -61,7 +61,13 @@ spring:
         max-idle: 100
         # 连接池中的最小空闲连接
         min-idle: 50
-
+  # 邮箱配置
+  mail:
+    host: smtp.qq.com
+    # 用户名
+    username: 495028518@qq.com
+    # 授权码
+    password: qvckkhuwmqyycaci
 # mybatisPlus配置
 mybatis-plus:
   # mapper映射地址
@@ -77,6 +83,9 @@ mybatis-plus:
     db-config:
       # 数据库表前缀
       table-prefix: t_
+
+
+
 
 # B站图片上传链接
 bili-url: https://api.bilibili.com/x/dynamic/feed/draw/upload_bfs

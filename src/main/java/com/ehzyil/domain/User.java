@@ -1,19 +1,17 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ehzyil
@@ -23,7 +21,10 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("t_user")
-@ApiModel(value="User对象", description="")
+@Builder
+@ApiModel(value = "User对象", description = "")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,7 +61,7 @@ public class User implements Serializable {
     private String ipSource;
 
     @ApiModelProperty(value = "登录方式 (1邮箱 2QQ 3Gitee 4Github)")
-    private Boolean loginType;
+    private Integer loginType;
 
     @ApiModelProperty(value = "是否禁用 (0否 1是)")
     private Boolean isDisable;
@@ -68,9 +69,11 @@ public class User implements Serializable {
     @ApiModelProperty(value = "登录时间")
     private LocalDateTime loginTime;
 
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.UPDATE)
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

@@ -1,8 +1,7 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -47,6 +46,7 @@ public class VisitLog implements Serializable {
     @ApiModelProperty(value = "浏览器")
     private String browser;
 
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "访问时间")
     private LocalDateTime createTime;
 
