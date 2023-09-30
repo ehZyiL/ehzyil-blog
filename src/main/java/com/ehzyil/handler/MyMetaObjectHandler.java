@@ -1,4 +1,4 @@
-package com.ehzyil.config;
+package com.ehzyil.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.log4j.Log4j2;
