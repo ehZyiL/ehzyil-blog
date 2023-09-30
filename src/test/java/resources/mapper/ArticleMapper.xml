@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ehzyil.mapper.ArticleMapper">
+    <resultMap id="articleHomeVO" type="com.ehzyil.model.vo.ArticleHomeVO">
+        <id column="article_id" property="id"/>
+        <result column="article_cover" property="articleCover"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_description" property="articleDescription"/>
+        <result column="is_top" property="isTop"/>
+        <result column="create_time" property="createTime"/>
+        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+            <id column="category_id" property="id"/>
+            <result column="category_name" property="categoryName"/>
+        </association>
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="ArticleVO" type="com.ehzyil.model.vo.ArticleVO">
+        <id column="id" property="id"/>
+        <result column="article_cover" property="articleCover"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_description" property="articleDescription"/>
+        <result column="article_content" property="articleContent"/>
+        <result column="article_type" property="articleType"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <!-- 一对一-->
+        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+            <id column="category_id" property="id"/>
+            <result column="category_name" property="categoryName"/>
+        </association>
+
+        <!-- 一对多-->
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="articleConditionVO" type="com.ehzyil.model.vo.ArticleConditionVO">
+        <id column="id" property="id"/>
+        <result column="article_cover" property="articleCover"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="create_time" property="createTime"/>
+        <!-- 一对一-->
+        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+            <id column="category_id" property="id"/>
+            <result column="category_name" property="categoryName"/>
+        </association>
+
+        <!-- 一对多-->
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectArticleHomeList" resultMap="articleHomeVO">
+        select article_id,
+               article_cover,
+               article_title,
+               article_description,
+               a.create_time,
+               a.article_type,
+               a.is_top,
+               a.category_id,
+               category_name,
+               t.id AS tag_id,
+               t.tag_name
+
+        from (select id,
+                     article_cover,
+                     category_id,
+                     article_title,
+                     article_description,
+                     article_type,
+                     is_top,
+                     is_recommend,
+                     is_delete,
+                     `status`,
+                     create_time
+              from t_article
+              where status = 1
+                and is_delete = 0
+              ORDER BY is_top
+                      DESC, create_time DESC, id desc LIMIT #{limit}, #{size}) a
+                 left join t_category c
+                           on a.category_id = c.id
+                 left join t_article_tag at
+        on a.id = at.article_id
+            left join t_tag t on t.id = at.tag_id
+    </select>
+
+    <select id="selectArticleRecommend" resultType="com.ehzyil.model.vo.ArticleRecommendVO">
+        select id,
+               article_cover,
+               article_title,
+               create_time
+        from t_article
+        where status = 1
+          and is_delete = 0
+          AND is_recommend = 1 LIMIT 5
+    </select>
+
+    <select id="getArticleById" resultMap="ArticleVO" parameterType="java.lang.Integer">
+        select a.id,
+               article_cover,
+               category_id,
+               article_title,
+               article_content,
+               article_description,
+               article_type,
+               a.create_time,
+               a.update_time,
+               a.category_id,
+               c.category_name,
+               t.id AS tag_id,
+               tag_name
+        from t_article a
+                 inner join t_category c
+                            on a.category_id = c.id
+                 inner join t_article_tag at
+        on a.id = at.article_id
+            inner join t_tag t on t.id = at.tag_id
+        where a.id= #{articleId}
+    </select>
+    <select id="selectLastArticle" resultType="com.ehzyil.model.vo.ArticlePaginationVO"
+            parameterType="java.lang.Integer">
+        select id, article_title, article_cover
+        from t_article
+        where status = 1
+          and is_delete = 0
+
+          AND id &lt; #{articleId}
+        ORDER BY id DESC LIMIT 1
+    </select>
+    <select id="selectNextArticle" resultType="com.ehzyil.model.vo.ArticlePaginationVO"
+            parameterType="java.lang.Integer">
+        select id, article_title, article_cover
+        from t_article
+        where status = 1
+          and is_delete = 0
+
+          AND id &gt; #{articleId}
+        ORDER BY id DESC LIMIT 1
+    </select>
+
+
+    <select id="listArticleByCondition" resultMap="articleConditionVO">
+        SELECT a.id,
+        article_cover,
+        article_title,
+        a.create_time,
+        c.id AS category_id,
+        c.category_name,
+        t.id AS tag_id,
+        tag_name
+        FROM t_article a
+        INNER JOIN t_category c ON a.category_id = c.id
+        INNER JOIN t_article_tag tat ON a.id = tat.article_id
+        INNER JOIN t_tag t ON tat.tag_id = t.id
+        <where>
+            is_delete = 0 and `status` = 1
+            <if test="condition.categoryId != null">
+                and category_id = #{condition.categoryId}
+            </if>
+            <if test="condition.tagId != null">
+                and tag_id = #{condition.tagId}
+            </if>
+        </where>
+        ORDER BY a.id DESC
+        LIMIT #{limit}, #{size}
+    </select>
+</mapper>
