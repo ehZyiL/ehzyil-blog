@@ -69,7 +69,7 @@ public class OperationLog implements Serializable {
     private String ipSource;
 
     @ApiModelProperty(value = "操作耗时 (毫秒)")
-    private Integer times;
+    private long times;
 
     @ApiModelProperty(value = "操作时间")
     private LocalDateTime createTime;

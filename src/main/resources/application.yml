@@ -89,6 +89,14 @@ mybatis-plus:
       # 数据库表前缀
       table-prefix: t_
 
+# 线程池配置
+thread:
+  pool:
+    core-pool-size: 5
+    max-pool-size: 10
+    queue-capacity: 50
+    keep-alive-seconds: 60
+
 # 文件上传策略 local、oss、cos
 upload:
   strategy: qiniu

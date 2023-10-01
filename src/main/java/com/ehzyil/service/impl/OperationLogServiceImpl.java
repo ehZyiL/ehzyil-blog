@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class OperationLogServiceImpl extends ServiceImpl<OperationLogMapper, OperationLog> implements IOperationLogService {
 
+    @Override
+    public void recordOperation(OperationLog operationLog) {
+        getBaseMapper().insert(operationLog);
+    }
 }

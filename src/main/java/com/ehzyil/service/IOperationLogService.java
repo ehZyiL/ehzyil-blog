@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-09-25
  */
 public interface IOperationLogService extends IService<OperationLog> {
-
+void recordOperation(OperationLog operationLog);
 }
