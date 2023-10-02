@@ -92,9 +92,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleVO.setNextArticle(nextArticle);
 
         // 查询浏览量
-        Integer viewCount = redisService.getHash(ARTICLE_VIEW_COUNT, articleId.toString());
+        Double viewCount = Optional.ofNullable(redisService.getZsetScore(ARTICLE_VIEW_COUNT, articleId))
+                .orElse((double) 0);
 
-        articleVO.setLikeCount(Optional.ofNullable(viewCount).orElse(0));
+        articleVO.setViewCount(viewCount.intValue());
         // 查询点赞量
         Integer likeCount = redisService.getHash(ARTICLE_LIKE_COUNT, articleId.toString());
         articleVO.setLikeCount(Optional.ofNullable(likeCount).orElse(0));
