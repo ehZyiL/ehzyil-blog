@@ -33,7 +33,7 @@ public class Comment implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "类型 (1文章 2友链 3说说)")
-    private Boolean commentType;
+    private Integer commentType;
 
     @ApiModelProperty(value = "类型id (类型为友链则没有值)")
     private Integer typeId;
