@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IExceptionLogService extends IService<ExceptionLog> {
 
+    void recordException(ExceptionLog exceptionLog);
 }

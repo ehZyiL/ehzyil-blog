@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExceptionLogServiceImpl extends ServiceImpl<ExceptionLogMapper, ExceptionLog> implements IExceptionLogService {
 
+    @Override
+    public void recordException(ExceptionLog exceptionLog) {
+        getBaseMapper().insert(exceptionLog);
+    }
 }
