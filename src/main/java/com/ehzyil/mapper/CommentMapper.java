@@ -56,6 +56,15 @@ public interface CommentMapper extends BaseMapper<Comment> {
      * @param commentType
      * @return
      */
-    List<CommentReplyCountVO>  selectReplyByParentId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
+    List<CommentReplyCountVO>  selectReplyCountByParentId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
+    /**
+     * 查询父评论下的子评论
+     *
+     * @param limit     页码
+     * @param size      大小
+     * @param commentId 父评论id
+     * @return 回复评论集合
+     */
+    List<ReplyVO> selectReplyByParentId(@Param("limit") Long limit, @Param("size") Long size, @Param("commentId") Integer commentId);
 
 }

@@ -1,10 +1,12 @@
 package com.ehzyil.controller;
 
 
+import com.ehzyil.enums.LikeTypeEnum;
 import com.ehzyil.model.vo.PageResult;
 import com.ehzyil.model.vo.Result;
 import com.ehzyil.model.vo.TalkVO;
 import com.ehzyil.service.ITalkService;
+import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class TalkController {
     @Autowired
     private ITalkService talkService;
 
+    @Autowired
+    private LikeStrategyContext likeStrategyContext;
 
     /**
      * 查看首页说说
@@ -47,7 +51,7 @@ public class TalkController {
     @ApiOperation(value = "查看说说列表")
     @GetMapping("/talk/list")
     public Result<PageResult<TalkVO>> listTalkVO(@RequestParam("current") Long current, @RequestParam("size") Long size) {
-        return Result.success(talkService.listTalkVO(current,size));
+        return Result.success(talkService.listTalkVO(current, size));
     }
 
     @ApiOperation(value = "根据id查看说说")
@@ -56,5 +60,11 @@ public class TalkController {
         return Result.success(talkService.getTalkById(talkId));
     }
 
+    @ApiOperation(value = "点赞说说")
+    @PostMapping("/talk/{talkId}/like")
+    public Result<?> likeArticle(@PathVariable("talkId") Integer talkId) {
+        likeStrategyContext.executeLikeStrategy(LikeTypeEnum.TALK, talkId);
+        return Result.success();
+    }
 
 }

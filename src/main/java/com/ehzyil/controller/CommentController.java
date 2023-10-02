@@ -1,17 +1,19 @@
 package com.ehzyil.controller;
 
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
+import com.ehzyil.enums.LikeTypeEnum;
+import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
 import com.ehzyil.model.vo.*;
 import com.ehzyil.service.ICommentService;
+import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +31,10 @@ public class CommentController {
 
     @Autowired
     private ICommentService commentService;
+
+    @Autowired
+    private LikeStrategyContext likeStrategyContext;
+
     /**
      * 查看最新评论
      *
@@ -44,5 +50,25 @@ public class CommentController {
     @GetMapping("/comment/list")
     public Result<PageResult<CommentVO>> listCommentVO(ConditionDTO conditionDTO) {
         return Result.success(commentService.listCommentVO(conditionDTO));
+    }
+    @ApiOperation(value = "查看回复评论")
+    @GetMapping("/comment/{commentId}/reply")
+    public Result<List<ReplyVO>> listReply( @PathVariable("commentId") Integer commentId) {
+        return Result.success(commentService.listReply(commentId));
+    }
+
+
+    @ApiOperation(value = "评论")
+    @PostMapping("/comment/add")
+    public Result<?> addComment(@RequestBody CommentDTO commentDTO) {
+        commentService.addComment(commentDTO);
+        return Result.success();
+    }
+
+    @ApiOperation(value = "点赞评论")
+    @PostMapping("/comment/{commentId}/like")
+    public Result<?> likeArticle(@PathVariable("commentId") Integer commentId) {
+        likeStrategyContext.executeLikeStrategy(LikeTypeEnum.COMMENT, commentId);
+        return Result.success();
     }
 }

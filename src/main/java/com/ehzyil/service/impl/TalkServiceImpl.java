@@ -13,6 +13,7 @@ import com.ehzyil.model.vo.PageResult;
 import com.ehzyil.model.vo.TalkVO;
 import com.ehzyil.service.ITalkService;
 import com.ehzyil.service.IUserService;
+import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
@@ -21,6 +22,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static com.ehzyil.constant.RedisConstant.TALK_LIKE_COUNT;
 
 /**
  * <p>
@@ -37,6 +40,8 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
 
     @Autowired
     private IUserService userService;
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public List<String> listTalkHome() {
@@ -102,8 +107,8 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
         //转换为Map key为talkId value为评论数
         Map<Integer, Integer> commentCountMap = commentCountVOS.stream().collect(Collectors.toMap(CommentCountVO::getCommentCount, CommentCountVO::getCommentCount));
 
-        //查询点赞量
-        //TODO
+        // 查询说说点赞量
+        Map<String, Integer> likeCountMap = redisService.getHashAll(TALK_LIKE_COUNT);
 
         List<TalkVO> talkVOList = new ArrayList<>();
         // 封装说说
@@ -112,7 +117,7 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
             BeanUtils.copyProperties(talk, talkVO);
 
             talkVO.setCommentCount(Optional.ofNullable(commentCountMap.get(talkVO.getId())).orElse(0));
-            talkVO.setLikeCount(0);
+            talkVO.setLikeCount(Optional.ofNullable(likeCountMap.get(talk.getId().toString())).orElse(0));
 
             // 转换图片格式
             if (Objects.nonNull(talk.getImages())) {
@@ -144,9 +149,9 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
                 .eq(Comment::getCommentType, "3"));
         talkVO.setCommentCount(Math.toIntExact(Optional.ofNullable(count).orElse(0L)));
 
-        //查询点赞量
-        //TODO
-        talkVO.setLikeCount(0);
+        // 查询说说点赞量
+        Integer likeCount = redisService.getHash(TALK_LIKE_COUNT, talkId.toString());
+        talkVO.setLikeCount(Optional.ofNullable(likeCount).orElse(0));
 
         // 转换图片格式
         if (Objects.nonNull(talk.getImages())) {

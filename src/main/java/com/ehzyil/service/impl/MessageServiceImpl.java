@@ -8,6 +8,7 @@ import com.ehzyil.model.vo.MessageVO;
 import com.ehzyil.service.IMessageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.service.ISiteConfigService;
+import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.IpUtils;
 import org.checkerframework.checker.units.qual.A;
@@ -17,6 +18,9 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
+
+import static com.ehzyil.constant.RedisConstant.SITE_SETTING;
 
 /**
  * <p>
@@ -32,7 +36,8 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
    private   HttpServletRequest request;
     @Autowired
     private ISiteConfigService siteConfigService;
-
+    @Autowired
+    private RedisService redisService;
     @Override
     public List<MessageVO> listTalkHome() {
        return getBaseMapper().selectMessageVoList();
@@ -44,9 +49,9 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         //拷贝信息
         BeanUtils.copyProperties(message,newMessage);
         //获取站点信息
-//        SiteConfig siteConfig=
-        //TODO 设置是否检查
-        newMessage.setIsCheck(0);
+        SiteConfig siteConfig=redisService.getObject(SITE_SETTING);
+        //设置是否检查
+        newMessage.setIsCheck(Optional.ofNullable(siteConfig.getMessageCheck()).orElse(0));
         //获取IP
         String ipAddress = IpUtils.getIpAddress(request);
         String ipSource = IpUtils.getIpSource(ipAddress);

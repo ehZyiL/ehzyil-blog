@@ -11,13 +11,18 @@ import com.ehzyil.model.vo.*;
 import com.ehzyil.service.IArticleService;
 import com.ehzyil.service.ICategoryService;
 import com.ehzyil.service.ITagService;
+import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static com.ehzyil.constant.RedisConstant.ARTICLE_LIKE_COUNT;
+import static com.ehzyil.constant.RedisConstant.ARTICLE_VIEW_COUNT;
 
 /**
  * <p>
@@ -43,6 +48,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Autowired
     private ITagService tagService;
+
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public PageResult<ArticleHomeVO> listArticleHomeVO() {
@@ -73,7 +81,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         ArticleVO articleVO = articleMapper.getArticleById(articleId);
 
         // 浏览量+1
-        //TODO
+        redisService.incrZet(ARTICLE_VIEW_COUNT, articleId, 1D);
 
         //查询上一篇文章
         ArticlePaginationVO lastArticle = articleMapper.selectLastArticle(articleId);
@@ -84,11 +92,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         articleVO.setNextArticle(nextArticle);
 
         // 查询浏览量
-        //TODO
-        articleVO.setLikeCount(0);
+        Integer viewCount = redisService.getHash(ARTICLE_VIEW_COUNT, articleId.toString());
+
+        articleVO.setLikeCount(Optional.ofNullable(viewCount).orElse(0));
         // 查询点赞量
-        //TODO
-        articleVO.setLikeCount(0);
+        Integer likeCount = redisService.getHash(ARTICLE_LIKE_COUNT, articleId.toString());
+        articleVO.setLikeCount(Optional.ofNullable(likeCount).orElse(0));
+
         return articleVO;
     }
 
@@ -109,11 +119,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
                 .stream()
                 .map(article -> {
                     ArchiveVO archiveVO = new ArchiveVO();
-                    BeanUtils.copyProperties(article,archiveVO);
+                    BeanUtils.copyProperties(article, archiveVO);
                     return archiveVO;
                 })
                 .collect(Collectors.toList());
 
-        return new PageResult<>(archiveList,page.getSize());
+        return new PageResult<>(archiveList, page.getSize());
     }
 }

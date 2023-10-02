@@ -95,8 +95,7 @@ public class LoginServiceImpl implements LoginService {
                 .username(register.getUsername())
                 .password(pwd)
                 .nickname(USER_NICKNAME + IdWorker.getId())
-                //TODO
-                .avatar("")
+                .avatar(siteConfig.getTouristAvatar())
                 .email(register.getUsername())
                 .loginType(EMAIL.getLoginType())
                 .isDisable(FALSE)

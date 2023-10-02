@@ -1,10 +1,13 @@
 package com.ehzyil.controller;
 
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.ehzyil.annotation.OptLogger;
 import com.ehzyil.annotation.VisitLogger;
+import com.ehzyil.enums.LikeTypeEnum;
 import com.ehzyil.model.vo.*;
 import com.ehzyil.service.IArticleService;
+import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,8 @@ public class ArticleController {
     @Autowired
     private IArticleService articleService;
 
+    @Autowired
+    private LikeStrategyContext likeStrategyContext;
     /**
      * 查看首页文章列表
      *
@@ -55,5 +60,14 @@ public class ArticleController {
     @GetMapping("/archives/list")
     public Result<PageResult<ArchiveVO>> listArchiveVO(@RequestParam("current") Long current, @RequestParam("size") Long size) {
         return Result.success(articleService.listArchiveVO(current,size));
+    }
+
+    @ApiOperation(value = "点赞文章")
+//    @AccessLimit(seconds = 60, maxCount = 3)
+    @SaCheckPermission("blog:article:like")
+    @PostMapping("/article/{articleId}/like")
+    public Result<?> likeArticle(@PathVariable("articleId") Integer articleId) {
+        likeStrategyContext.executeLikeStrategy(LikeTypeEnum.ARTICLE, articleId);
+        return Result.success();
     }
 }

@@ -2,10 +2,12 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
 import com.ehzyil.model.vo.CommentVO;
 import com.ehzyil.model.vo.PageResult;
 import com.ehzyil.model.vo.RecentCommentVO;
+import com.ehzyil.model.vo.ReplyVO;
 
 import java.util.List;
 
@@ -31,4 +33,18 @@ public interface ICommentService extends IService<Comment> {
      * @return
      */
     PageResult<CommentVO> listCommentVO(ConditionDTO conditionDTO);
+
+    /**
+     * 评论
+     * @param commentDTO
+     * @return
+     */
+    void addComment(CommentDTO commentDTO);
+
+    /**
+     * 查看回复评论
+     * @param commentId
+     * @return
+     */
+    List<ReplyVO> listReply(Integer commentId);
 }

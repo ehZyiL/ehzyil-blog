@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import static com.ehzyil.constant.RedisConstant.CODE_KEY;
+import java.util.Set;
+
+import static com.ehzyil.constant.RedisConstant.*;
 import static com.ehzyil.enums.FilePathEnum.AVATAR;
 
 /**
@@ -47,6 +49,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 .select(User::getNickname, User::getAvatar, User::getUsername, User::getWebSite,
                         User::getIntro, User::getEmail, User::getLoginType)
                 .eq(User::getId, userId));
+        //获取用户点赞集合
+        Set<Object> articleLikeSet = redisService.getSet(USER_ARTICLE_LIKE + userId);
+        Set<Object> commentLikeSet = redisService.getSet(USER_COMMENT_LIKE + userId);
+        Set<Object> talkLikeSet = redisService.getSet(USER_TALK_LIKE + userId);
 
         return UserInfoVO
                 .builder()
@@ -57,9 +63,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 .email(user.getEmail())
                 .webSite(user.getWebSite())
                 .intro(user.getIntro())
-//                .articleLikeSet(articleLikeSet)
-//                .commentLikeSet(commentLikeSet)
-//                .talkLikeSet(talkLikeSet)
+                .articleLikeSet(articleLikeSet)
+                .commentLikeSet(commentLikeSet)
+                .talkLikeSet(talkLikeSet)
                 .loginType(user.getLoginType())
                 .build();
     }

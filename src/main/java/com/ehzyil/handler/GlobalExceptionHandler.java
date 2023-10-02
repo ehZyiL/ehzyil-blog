@@ -83,7 +83,7 @@ public class GlobalExceptionHandler {
         if (nle.getType().equals(NotLoginException.NOT_TOKEN)) {
             message = "未提供token";
         } else if (nle.getType().equals(NotLoginException.INVALID_TOKEN)) {
-            message = "token无效";
+            message = "token无效(登录后才能点赞哦！)";
         } else if (nle.getType().equals(NotLoginException.TOKEN_TIMEOUT)) {
             message = "token已过期";
         } else {
