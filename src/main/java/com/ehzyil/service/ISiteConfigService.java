@@ -2,6 +2,7 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.SiteConfig;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -17,4 +18,19 @@ public interface ISiteConfigService extends IService<SiteConfig> {
      * @return
      */
     SiteConfig getSiteConfig();
+
+
+    /**
+     * 更新网站配置
+     *
+     * @param siteConfig 网站配置
+     */
+    void updateSiteConfig(SiteConfig siteConfig);
+
+    /**
+     * 上传网站配置图片
+     * @param file
+     * @return
+     */
+    String uploadSiteImg(MultipartFile file);
 }

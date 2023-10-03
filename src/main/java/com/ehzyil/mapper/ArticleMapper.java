@@ -3,7 +3,8 @@ package com.ehzyil.mapper;
 import com.ehzyil.domain.Article;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.*;
+import com.ehzyil.model.vo.admin.ArticleStatisticsVO;
+import com.ehzyil.model.vo.front.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -60,4 +61,10 @@ public interface ArticleMapper extends BaseMapper<Article> {
      * @return
      */
     List<ArticleConditionVO> listArticleByCondition(@Param("limit") Long limit, @Param("size") Long size, @Param("condition") ConditionDTO condition);
+    /**
+     * 查询文章统计
+     *
+     * @return 文章统计
+     */
+    List<ArticleStatisticsVO> selectArticleStatistics();
 }

@@ -4,12 +4,11 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ehzyil.domain.Album;
 import com.ehzyil.mapper.AlbumMapper;
-import com.ehzyil.model.vo.AlbumVO;
+import com.ehzyil.model.vo.front.AlbumVO;
 import com.ehzyil.service.IAlbumService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

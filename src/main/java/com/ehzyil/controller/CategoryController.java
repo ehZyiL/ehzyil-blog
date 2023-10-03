@@ -2,17 +2,14 @@ package com.ehzyil.controller;
 
 
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.ArticleConditionList;
-import com.ehzyil.model.vo.CategoryOptionVO;
-import com.ehzyil.model.vo.CategoryVO;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.ArticleConditionList;
+import com.ehzyil.model.vo.front.CategoryVO;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.ICategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 

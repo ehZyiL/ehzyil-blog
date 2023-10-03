@@ -2,7 +2,7 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Album;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ehzyil.model.vo.AlbumVO;
+import com.ehzyil.model.vo.front.AlbumVO;
 
 import java.util.List;
 

@@ -2,9 +2,8 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Talk;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ehzyil.model.vo.PageResult;
-import com.ehzyil.model.vo.TalkVO;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.ehzyil.model.vo.front.PageResult;
+import com.ehzyil.model.vo.front.TalkVO;
 
 import java.util.List;
 

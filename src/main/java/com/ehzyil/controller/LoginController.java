@@ -4,7 +4,7 @@ import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
 import com.ehzyil.model.dto.LoginDTO;
 import com.ehzyil.model.dto.RegisterDTO;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

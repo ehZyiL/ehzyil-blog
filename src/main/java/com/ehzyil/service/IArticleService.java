@@ -2,8 +2,7 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ehzyil.model.vo.*;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.ehzyil.model.vo.front.*;
 
 import java.util.List;
 
@@ -41,6 +40,6 @@ public interface IArticleService extends IService<Article> {
      *
      * @return
      */
-    PageResult<ArchiveVO>  listArchiveVO( Long current,Long size);
+    PageResult<ArchiveVO>  listArchiveVO(Long current, Long size);
 
 }

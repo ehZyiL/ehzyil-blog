@@ -2,8 +2,8 @@ package com.ehzyil.controller;
 
 
 import com.ehzyil.annotation.VisitLogger;
-import com.ehzyil.model.vo.AlbumVO;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.AlbumVO;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.IAlbumService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

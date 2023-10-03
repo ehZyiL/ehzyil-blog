@@ -4,10 +4,9 @@ package com.ehzyil.controller;
 import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.ehzyil.annotation.AccessLimit;
-import com.ehzyil.annotation.OptLogger;
 import com.ehzyil.annotation.VisitLogger;
 import com.ehzyil.enums.LikeTypeEnum;
-import com.ehzyil.model.vo.*;
+import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.IArticleService;
 import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
@@ -37,7 +36,7 @@ public class ArticleController {
     /**
      * 查看首页文章列表
      *
-     * @return {@link Result<ArticleHomeVO>}
+     * @return {@link Result< ArticleHomeVO >}
      */
     @VisitLogger(value = "首页")
     @ApiOperation(value = "查看首页文章列表")
@@ -45,7 +44,7 @@ public class ArticleController {
     public Result<PageResult<ArticleHomeVO>> listArticleHomeVO() {
         return Result.success(articleService.listArticleHomeVO());
     }
-    @SaCheckPermission("blog:article:recommend")
+
     @ApiOperation(value = "查看推荐文章")
     @GetMapping("/article/recommend")
     public Result<List<ArticleRecommendVO>> listArticleRecommendVO() {

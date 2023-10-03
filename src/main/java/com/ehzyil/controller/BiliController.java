@@ -1,6 +1,6 @@
 package com.ehzyil.controller;
 
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.BiliService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

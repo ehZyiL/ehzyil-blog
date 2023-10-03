@@ -2,7 +2,7 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Friend;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ehzyil.model.vo.FriendVO;
+import com.ehzyil.model.vo.front.FriendVO;
 
 import java.util.List;
 

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ehzyil.mapper.ArticleMapper">
-    <resultMap id="articleHomeVO" type="com.ehzyil.model.vo.ArticleHomeVO">
+    <resultMap id="articleHomeVO" type="com.ehzyil.model.vo.front.ArticleHomeVO">
         <id column="article_id" property="id"/>
         <result column="article_cover" property="articleCover"/>
         <result column="article_title" property="articleTitle"/>
         <result column="article_description" property="articleDescription"/>
         <result column="is_top" property="isTop"/>
         <result column="create_time" property="createTime"/>
-        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+        <association property="category" javaType="com.ehzyil.model.vo.front.CategoryOptionVO">
             <id column="category_id" property="id"/>
             <result column="category_name" property="categoryName"/>
         </association>
-        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.front.TagOptionVO">
             <id column="tag_id" property="id"/>
             <result column="tag_name" property="tagName"/>
         </collection>
     </resultMap>
 
-    <resultMap id="ArticleVO" type="com.ehzyil.model.vo.ArticleVO">
+    <resultMap id="ArticleVO" type="com.ehzyil.model.vo.front.ArticleVO">
         <id column="id" property="id"/>
         <result column="article_cover" property="articleCover"/>
         <result column="article_title" property="articleTitle"/>
@@ -28,31 +28,31 @@
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
         <!-- 一对一-->
-        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+        <association property="category" javaType="com.ehzyil.model.vo.front.CategoryOptionVO">
             <id column="category_id" property="id"/>
             <result column="category_name" property="categoryName"/>
         </association>
 
         <!-- 一对多-->
-        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.front.TagOptionVO">
             <id column="tag_id" property="id"/>
             <result column="tag_name" property="tagName"/>
         </collection>
     </resultMap>
 
-    <resultMap id="articleConditionVO" type="com.ehzyil.model.vo.ArticleConditionVO">
+    <resultMap id="articleConditionVO" type="com.ehzyil.model.vo.front.ArticleConditionVO">
         <id column="id" property="id"/>
         <result column="article_cover" property="articleCover"/>
         <result column="article_title" property="articleTitle"/>
         <result column="create_time" property="createTime"/>
         <!-- 一对一-->
-        <association property="category" javaType="com.ehzyil.model.vo.CategoryOptionVO">
+        <association property="category" javaType="com.ehzyil.model.vo.front.CategoryOptionVO">
             <id column="category_id" property="id"/>
             <result column="category_name" property="categoryName"/>
         </association>
 
         <!-- 一对多-->
-        <collection property="tagVOList" ofType="com.ehzyil.model.vo.TagOptionVO">
+        <collection property="tagVOList" ofType="com.ehzyil.model.vo.front.TagOptionVO">
             <id column="tag_id" property="id"/>
             <result column="tag_name" property="tagName"/>
         </collection>
@@ -94,7 +94,7 @@
             left join t_tag t on t.id = at.tag_id
     </select>
 
-    <select id="selectArticleRecommend" resultType="com.ehzyil.model.vo.ArticleRecommendVO">
+    <select id="selectArticleRecommend" resultType="com.ehzyil.model.vo.front.ArticleRecommendVO">
         select id,
                article_cover,
                article_title,
@@ -127,7 +127,7 @@
             inner join t_tag t on t.id = at.tag_id
         where a.id= #{articleId}
     </select>
-    <select id="selectLastArticle" resultType="com.ehzyil.model.vo.ArticlePaginationVO"
+    <select id="selectLastArticle" resultType="com.ehzyil.model.vo.front.ArticlePaginationVO"
             parameterType="java.lang.Integer">
         select id, article_title, article_cover
         from t_article
@@ -137,7 +137,7 @@
           AND id &lt; #{articleId}
         ORDER BY id DESC LIMIT 1
     </select>
-    <select id="selectNextArticle" resultType="com.ehzyil.model.vo.ArticlePaginationVO"
+    <select id="selectNextArticle" resultType="com.ehzyil.model.vo.front.ArticlePaginationVO"
             parameterType="java.lang.Integer">
         select id, article_title, article_cover
         from t_article
@@ -173,5 +173,13 @@
         </where>
         ORDER BY a.id DESC
         LIMIT #{limit}, #{size}
+    </select>
+
+    <select id="selectArticleStatistics" resultType="com.ehzyil.model.vo.admin.ArticleStatisticsVO">
+        SELECT DATE_FORMAT(create_time, "%Y-%m-%d") AS date,
+               COUNT(*)                             AS count
+        FROM t_article
+        GROUP BY date
+        ORDER BY date DESC
     </select>
 </mapper>

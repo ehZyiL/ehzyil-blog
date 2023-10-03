@@ -3,8 +3,8 @@ package com.ehzyil.service;
 import com.ehzyil.domain.Tag;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.ArticleConditionList;
-import com.ehzyil.model.vo.TagVo;
+import com.ehzyil.model.vo.front.ArticleConditionList;
+import com.ehzyil.model.vo.front.TagVo;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -70,7 +69,7 @@ public class OperationLog implements Serializable {
 
     @ApiModelProperty(value = "操作耗时 (毫秒)")
     private long times;
-
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "操作时间")
     private LocalDateTime createTime;
 

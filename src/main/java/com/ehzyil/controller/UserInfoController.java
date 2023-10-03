@@ -5,8 +5,9 @@ import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.ehzyil.model.dto.EmailDTO;
 import com.ehzyil.model.dto.UserInfoDTO;
 import com.ehzyil.model.dto.UserPasswordDTO;
-import com.ehzyil.model.vo.Result;
-import com.ehzyil.model.vo.UserInfoVO;
+import com.ehzyil.model.vo.admin.UserBackInfoVO;
+import com.ehzyil.model.vo.front.Result;
+import com.ehzyil.model.vo.front.UserInfoVO;
 import com.ehzyil.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.nio.channels.MulticastChannel;
 
 /**
  * @author ehyzil
@@ -78,5 +77,11 @@ public class UserInfoController {
         return Result.success(userService.updateAvatar(file));
     }
 
+
+    @ApiOperation(value = "获取admin登录用户信息")
+    @GetMapping("/admin/user/getUserInfo")
+    public Result<UserBackInfoVO> getAdminUserInfo() {
+        return Result.success(userService.getAdminUserInfo());
+    }
 
 }

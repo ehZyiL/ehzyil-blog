@@ -1,12 +1,19 @@
 package com.ehzyil.service.impl;
 
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.ehzyil.domain.Article;
 import com.ehzyil.domain.SiteConfig;
-import com.ehzyil.mapper.ArticleMapper;
-import com.ehzyil.mapper.CategoryMapper;
-import com.ehzyil.mapper.TagMapper;
-import com.ehzyil.model.vo.BlogInfoVO;
+import com.ehzyil.mapper.*;
+import com.ehzyil.model.vo.admin.ArticleRankVO;
+import com.ehzyil.model.vo.admin.ArticleStatisticsVO;
+import com.ehzyil.model.vo.admin.BlogBackInfoVO;
+import com.ehzyil.model.vo.admin.UserViewVO;
+import com.ehzyil.model.vo.front.BlogInfoVO;
+import com.ehzyil.model.vo.front.CategoryVO;
+import com.ehzyil.model.vo.front.TagOptionVO;
 import com.ehzyil.service.BlogInfoService;
 import com.ehzyil.service.ISiteConfigService;
 import com.ehzyil.service.RedisService;
@@ -17,12 +24,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import static com.ehzyil.constant.CommonConstant.FALSE;
-import static com.ehzyil.constant.RedisConstant.BLOG_VIEW_COUNT;
-import static com.ehzyil.constant.RedisConstant.UNIQUE_VISITOR;
+import static com.ehzyil.constant.RedisConstant.*;
 import static com.ehzyil.enums.ArticleStatusEnum.PUBLIC;
 
 /**
@@ -40,10 +48,17 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     private CategoryMapper categoryMapper;
 
     @Autowired
+    private MessageMapper messageMapper;
+    @Autowired
+    private UserMapper userMapper;
+
+    @Autowired
     private TagMapper tagMapper;
 
     @Autowired
-    private RedisService redisService;
+    private RedisService redisService   ;
+    @Autowired
+    private VisitLogMapper visitLogMapper;
 
     @Autowired
     private ISiteConfigService siteConfigService;
@@ -95,5 +110,47 @@ public class BlogInfoServiceImpl implements BlogInfoService {
                 .viewCount(viewCount)
                 .siteConfig(siteConfig)
                 .build();
+    }
+
+    @Override
+    public BlogBackInfoVO getBlogBackInfo() {
+        // 访问量
+        Integer viewCount = redisService.getObject(BLOG_VIEW_COUNT);
+        // 留言量
+        Long messageCount = messageMapper.selectCount(null);
+        // 用户量
+        Long userCount = userMapper.selectCount(null);
+        // 文章量
+        Long articleCount = articleMapper.selectCount(new LambdaQueryWrapper<Article>()
+                .eq(Article::getIsDelete, FALSE));
+        // 分类数据
+        List<CategoryVO> categoryVOList = categoryMapper.selectCategoryVO();
+        // 标签数据
+        List<TagOptionVO> tagVOList = tagMapper.selectTagOptionList();
+        // 查询用户浏览
+        DateTime startTime = DateUtil.beginOfDay(DateUtil.offsetDay(new Date(), -7));
+        DateTime endTime = DateUtil.endOfDay(new Date());
+        List<UserViewVO> userViewVOList = visitLogMapper.selectUserViewList(startTime, endTime);
+        // 文章统计
+        List<ArticleStatisticsVO> articleStatisticsList = articleMapper.selectArticleStatistics();
+        // 查询redis访问量前五的文章
+        Map<Object, Double> articleMap = redisService.zReverseRangeWithScore(ARTICLE_VIEW_COUNT, 0, 4);
+        BlogBackInfoVO blogBackInfoVO = BlogBackInfoVO.builder()
+                .articleStatisticsList(articleStatisticsList)
+                .tagVOList(tagVOList)
+                .viewCount(viewCount)
+                .messageCount(messageCount)
+                .userCount(userCount)
+                .articleCount(articleCount)
+                .categoryVOList(categoryVOList)
+                .userViewVOList(userViewVOList)
+                .build();
+        if (CollectionUtils.isNotEmpty(articleMap)) {
+//            // 查询文章排行
+//            List<ArticleRankVO> articleRankVOList = listArticleRank(articleMap);
+//            blogBackInfoVO.setArticleRankVOList(articleRankVOList);
+        }
+        return blogBackInfoVO;
+
     }
 }

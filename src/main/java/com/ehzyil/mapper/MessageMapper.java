@@ -2,7 +2,7 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Message;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ehzyil.model.vo.MessageVO;
+import com.ehzyil.model.vo.front.MessageVO;
 
 import java.util.List;
 

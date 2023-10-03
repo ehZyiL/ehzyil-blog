@@ -1,7 +1,8 @@
 package com.ehzyil.controller;
 
-import com.ehzyil.model.vo.BlogInfoVO;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.admin.BlogBackInfoVO;
+import com.ehzyil.model.vo.front.BlogInfoVO;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.BlogInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,5 +46,15 @@ public class BlogInfoController {
         return Result.success(blogInfoService.getBlogInfo());
     }
 
+    /**
+     * 查看后台信息
+     *
+     * @return {@link Result<BlogBackInfoVO>} 后台信息
+     */
+    @ApiOperation(value = "查看后台信息")
+    @GetMapping("/admin")
+    public Result<BlogBackInfoVO> getBlogBackInfo() {
+        return Result.success(blogInfoService.getBlogBackInfo());
+    }
 
 }

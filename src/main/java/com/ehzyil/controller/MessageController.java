@@ -2,10 +2,9 @@ package com.ehzyil.controller;
 
 
 import com.ehzyil.model.dto.MessageDTO;
-import com.ehzyil.model.vo.MessageVO;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.MessageVO;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.IMessageService;
-import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

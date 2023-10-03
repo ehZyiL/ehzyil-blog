@@ -3,7 +3,7 @@ package com.ehzyil.mapper;
 import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.*;
+import com.ehzyil.model.vo.front.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

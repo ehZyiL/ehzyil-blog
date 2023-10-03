@@ -7,7 +7,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ehzyil.domain.User;
 import com.ehzyil.mapper.UserMapper;
-import com.ehzyil.model.vo.OnlineVO;
+import com.ehzyil.model.vo.front.OnlineVO;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.UserAgentUtils;
 import org.springframework.beans.factory.annotation.Autowired;

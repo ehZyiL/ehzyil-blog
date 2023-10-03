@@ -12,7 +12,7 @@ import cn.dev33.satoken.util.SaResult;
 import cn.hutool.json.JSONUtil;
 import com.ehzyil.interceptor.AccessLimitInterceptor;
 import com.ehzyil.interceptor.PageableInterceptor;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

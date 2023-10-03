@@ -2,7 +2,7 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Talk;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ehzyil.model.vo.TalkVO;
+import com.ehzyil.model.vo.front.TalkVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

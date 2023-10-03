@@ -2,9 +2,9 @@ package com.ehzyil.controller;
 
 
 import com.ehzyil.enums.LikeTypeEnum;
-import com.ehzyil.model.vo.PageResult;
-import com.ehzyil.model.vo.Result;
-import com.ehzyil.model.vo.TalkVO;
+import com.ehzyil.model.vo.front.PageResult;
+import com.ehzyil.model.vo.front.Result;
+import com.ehzyil.model.vo.front.TalkVO;
 import com.ehzyil.service.ITalkService;
 import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;

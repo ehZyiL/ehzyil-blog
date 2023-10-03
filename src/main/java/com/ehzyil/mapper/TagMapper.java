@@ -2,10 +2,8 @@ package com.ehzyil.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehzyil.domain.Tag;
-import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.ArticleConditionVO;
-import com.ehzyil.model.vo.TagVo;
-import org.apache.ibatis.annotations.Param;
+import com.ehzyil.model.vo.front.TagOptionVO;
+import com.ehzyil.model.vo.front.TagVo;
 
 import java.util.List;
 
@@ -27,5 +25,11 @@ public interface TagMapper extends BaseMapper<Tag> {
      */
     List<TagVo> selectTagVO();
 
+    /**
+     * 查询标签列表
+     *
+     * @return 标签列表
+     */
+    List<TagOptionVO> selectTagOptionList();
 
 }

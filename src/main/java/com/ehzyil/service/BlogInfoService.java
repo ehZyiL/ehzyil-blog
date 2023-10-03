@@ -1,6 +1,7 @@
 package com.ehzyil.service;
 
-import com.ehzyil.model.vo.BlogInfoVO;
+import com.ehzyil.model.vo.admin.BlogBackInfoVO;
+import com.ehzyil.model.vo.front.BlogInfoVO;
 
 /**
  * 博客业务接口
@@ -20,4 +21,9 @@ public interface BlogInfoService {
      */
     BlogInfoVO getBlogInfo();
 
+    /**
+     * 查看后台信息
+     * @return
+     */
+    BlogBackInfoVO getBlogBackInfo();
 }

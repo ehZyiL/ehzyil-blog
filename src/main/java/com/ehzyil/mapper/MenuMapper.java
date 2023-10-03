@@ -2,6 +2,7 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Menu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.model.vo.admin.UserMenuVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -22,4 +23,12 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return 权限标识
      */
     List<String> selectPermissionByRoleId(@Param("roleId") String roleId);
+
+    /**
+     * 根据用户id查询用户菜单列表
+     *
+     * @param userId 用户id
+     * @return 用户菜单列表
+     */
+    List<UserMenuVO> selectMenuByUserId(@Param("userId") Integer userId);
 }

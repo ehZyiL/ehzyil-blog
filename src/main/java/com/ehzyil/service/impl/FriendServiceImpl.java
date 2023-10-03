@@ -2,7 +2,7 @@ package com.ehzyil.service.impl;
 
 import com.ehzyil.domain.Friend;
 import com.ehzyil.mapper.FriendMapper;
-import com.ehzyil.model.vo.FriendVO;
+import com.ehzyil.model.vo.front.FriendVO;
 import com.ehzyil.service.IFriendService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

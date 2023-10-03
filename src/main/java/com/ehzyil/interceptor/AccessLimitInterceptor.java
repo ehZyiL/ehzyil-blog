@@ -2,7 +2,7 @@ package com.ehzyil.interceptor;
 
 import com.alibaba.fastjson2.JSON;
 import com.ehzyil.annotation.AccessLimit;
-import com.ehzyil.model.vo.Result;
+import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.WebUtils;

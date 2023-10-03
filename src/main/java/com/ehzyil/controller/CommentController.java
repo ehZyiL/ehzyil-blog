@@ -1,17 +1,14 @@
 package com.ehzyil.controller;
 
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.ehzyil.enums.LikeTypeEnum;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.*;
+import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.ICommentService;
 import com.ehzyil.strategy.context.LikeStrategyContext;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +50,7 @@ public class CommentController {
     }
     @ApiOperation(value = "查看回复评论")
     @GetMapping("/comment/{commentId}/reply")
-    public Result<List<ReplyVO>> listReply( @PathVariable("commentId") Integer commentId) {
+    public Result<List<ReplyVO>> listReply(@PathVariable("commentId") Integer commentId) {
         return Result.success(commentService.listReply(commentId));
     }
 

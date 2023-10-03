@@ -2,7 +2,7 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Friend;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ehzyil.model.vo.FriendVO;
+import com.ehzyil.model.vo.front.FriendVO;
 
 import java.util.List;
 

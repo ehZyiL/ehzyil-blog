@@ -5,8 +5,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ehzyil.model.dto.EmailDTO;
 import com.ehzyil.model.dto.UserInfoDTO;
 import com.ehzyil.model.dto.UserPasswordDTO;
-import com.ehzyil.model.vo.UserInfoVO;
+import com.ehzyil.model.vo.admin.RouterVO;
+import com.ehzyil.model.vo.admin.UserBackInfoVO;
+import com.ehzyil.model.vo.front.UserInfoVO;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * <p>
@@ -34,4 +38,16 @@ public interface IUserService extends IService<User> {
     void updatePassword(UserPasswordDTO userPasswordDTO);
 
     String updateAvatar(MultipartFile multipartFile);
+
+    /**
+     * 获取admin登录用户信息
+     * @return
+     */
+    UserBackInfoVO getAdminUserInfo();
+
+    /**
+     * 获取登录用户菜单
+     * @return
+     */
+    List<RouterVO> getUserMenu();
 }

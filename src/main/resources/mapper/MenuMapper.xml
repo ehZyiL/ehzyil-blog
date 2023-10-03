@@ -8,4 +8,25 @@
         WHERE rm.role_id = #{roleId}
           AND m.is_disable = 0
     </select>
+
+    <select id="selectMenuByUserId" resultType="com.ehzyil.model.vo.admin.UserMenuVO">
+        SELECT DISTINCT m.id,
+                        m.parent_id,
+                        m.menu_name,
+                        m.menu_type,
+                        m.path,
+                        m.icon,
+                        m.order_num,
+                        m.component,
+                        m.is_hidden
+        FROM t_menu m
+                 left join t_role_menu rm on m.id = rm.menu_id
+                 left join t_user_role ur on rm.role_id = ur.role_id
+                 left join t_article a on ur.user_id = a.user_id
+        where m.menu_type in ('M', 'C')
+          and m.is_disable = 0
+          and m.is_hidden = 0
+          AND ur.user_id = #{userId}
+        ORDER BY m.parent_id, m.order_num
+    </select>
 </mapper>

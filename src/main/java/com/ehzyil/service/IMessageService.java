@@ -3,7 +3,7 @@ package com.ehzyil.service;
 import com.ehzyil.domain.Message;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ehzyil.model.dto.MessageDTO;
-import com.ehzyil.model.vo.MessageVO;
+import com.ehzyil.model.vo.front.MessageVO;
 
 import java.util.List;
 

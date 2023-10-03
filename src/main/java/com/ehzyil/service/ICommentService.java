@@ -4,10 +4,10 @@ import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.CommentVO;
-import com.ehzyil.model.vo.PageResult;
-import com.ehzyil.model.vo.RecentCommentVO;
-import com.ehzyil.model.vo.ReplyVO;
+import com.ehzyil.model.vo.front.CommentVO;
+import com.ehzyil.model.vo.front.PageResult;
+import com.ehzyil.model.vo.front.RecentCommentVO;
+import com.ehzyil.model.vo.front.ReplyVO;
 
 import java.util.List;
 
