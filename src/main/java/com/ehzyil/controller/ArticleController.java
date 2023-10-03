@@ -1,7 +1,9 @@
 package com.ehzyil.controller;
 
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import com.ehzyil.annotation.AccessLimit;
 import com.ehzyil.annotation.OptLogger;
 import com.ehzyil.annotation.VisitLogger;
 import com.ehzyil.enums.LikeTypeEnum;
@@ -43,7 +45,7 @@ public class ArticleController {
     public Result<PageResult<ArticleHomeVO>> listArticleHomeVO() {
         return Result.success(articleService.listArticleHomeVO());
     }
-
+    @SaCheckPermission("blog:article:recommend")
     @ApiOperation(value = "查看推荐文章")
     @GetMapping("/article/recommend")
     public Result<List<ArticleRecommendVO>> listArticleRecommendVO() {
@@ -62,8 +64,9 @@ public class ArticleController {
         return Result.success(articleService.listArchiveVO(current,size));
     }
 
+    @SaCheckLogin
     @ApiOperation(value = "点赞文章")
-//    @AccessLimit(seconds = 60, maxCount = 3)
+    @AccessLimit(seconds = 10, maxCount = 3)
     @SaCheckPermission("blog:article:like")
     @PostMapping("/article/{articleId}/like")
     public Result<?> likeArticle(@PathVariable("articleId") Integer articleId) {
