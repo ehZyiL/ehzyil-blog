@@ -5,9 +5,11 @@ import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
 import com.ehzyil.config.properties.OssProperties;
+import com.ehzyil.service.IBlogFileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
 
@@ -22,7 +24,8 @@ public class OssUploadStrategyImpl extends AbstractUploadStrategyImpl {
 
     @Autowired
     private OssProperties ossProperties;
-
+    @Autowired
+    private IBlogFileService blogFileService;
     @Override
     public void initClient() {
 
@@ -58,6 +61,10 @@ public class OssUploadStrategyImpl extends AbstractUploadStrategyImpl {
         return ossProperties.getUrl() + filePath;
     }
 
+    @Override
+    public void uploadToDB(MultipartFile file, String path, String md5, String extName, String url) {
+        blogFileService.uploadToDB(file,path,md5,extName,url);
+    }
     /**
      * 获取ossClient
      *

@@ -1,6 +1,8 @@
 package com.ehzyil.strategy.impl.upload;
 
 import com.ehzyil.config.properties.QiniuProperties;
+import com.ehzyil.mapper.BlogFileMapper;
+import com.ehzyil.service.IBlogFileService;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.BucketManager;
@@ -11,6 +13,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,6 +41,8 @@ public class QiniuUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Autowired
     private Auth auth;
 
+    @Autowired
+    private IBlogFileService blogFileService;
 
     @Override
     public void initClient() {
@@ -71,5 +76,10 @@ public class QiniuUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Override
     public String getFileAccessUrl(String filePath) {
         return qiniuProperties.getUrl() + filePath;
+    }
+
+    @Override
+    public void uploadToDB(MultipartFile file, String path, String md5, String extName, String url) {
+        blogFileService.uploadToDB(file,path,md5,extName,url);
     }
 }

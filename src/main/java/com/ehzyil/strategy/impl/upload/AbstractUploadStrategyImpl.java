@@ -1,12 +1,19 @@
 package com.ehzyil.strategy.impl.upload;
 
 import com.aliyun.oss.ServiceException;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.ehzyil.domain.BlogFile;
 import com.ehzyil.strategy.UploadStrategy;
 import com.ehzyil.utils.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
+
+import static com.ehzyil.constant.CommonConstant.FALSE;
+import static com.ehzyil.enums.FilePathEnum.CONFIG;
 
 /**
  * @author ehyzil
@@ -44,13 +51,20 @@ public abstract class AbstractUploadStrategyImpl implements UploadStrategy {
                 upload(path, fileName, file.getInputStream());
             }
             // 返回文件访问路径
-            return getFileAccessUrl(path + fileName);
+            String url=getFileAccessUrl(path + fileName);
+
+            uploadToDB(file, path, md5, extName, url);
+
+
+            return url;
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServiceException("文件上传失败");
         }
 
     }
+
+
 
     /**
      * 初始化客户端
@@ -82,4 +96,6 @@ public abstract class AbstractUploadStrategyImpl implements UploadStrategy {
      * @return {@link String} 文件url
      */
     public abstract String getFileAccessUrl(String filePath);
+
+    public abstract  void uploadToDB(MultipartFile file, String path, String md5, String extName, String url);
 }

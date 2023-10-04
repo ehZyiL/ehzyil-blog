@@ -1,6 +1,7 @@
 package com.ehzyil.strategy.impl.upload;
 
 import com.ehzyil.config.properties.CosProperties;
+import com.ehzyil.service.IBlogFileService;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.ClientConfig;
 import com.qcloud.cos.auth.BasicCOSCredentials;
@@ -13,6 +14,7 @@ import com.qcloud.cos.region.Region;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +28,8 @@ public class CosUploadStrategyImpl extends AbstractUploadStrategyImpl {
 
     @Autowired
     private CosProperties cosProperties;
-
+    @Autowired
+    private IBlogFileService blogFileService;
     @Override
     public void initClient() {
 
@@ -62,6 +65,11 @@ public class CosUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Override
     public String getFileAccessUrl(String filePath) {
         return cosProperties.getUrl() + filePath;
+    }
+
+    @Override
+    public void uploadToDB(MultipartFile file, String path, String md5, String extName, String url) {
+        blogFileService.uploadToDB(file,path,md5,extName,url);
     }
 
     /**

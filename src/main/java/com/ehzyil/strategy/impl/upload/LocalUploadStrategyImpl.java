@@ -1,12 +1,15 @@
 package com.ehzyil.strategy.impl.upload;
 
 import com.ehzyil.exception.ServiceException;
+import com.ehzyil.service.IBlogFileService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 
@@ -40,6 +43,9 @@ public class LocalUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Value("${server.port}")
     private Integer port;
 
+    @Autowired
+    private IBlogFileService blogFileService;
+    //TODO 本地上传待优化
     @Override
     public void initClient() {
 //win 本地
@@ -94,5 +100,10 @@ public class LocalUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Override
     public String getFileAccessUrl(String filePath) {
         return localPath + filePath;
+    }
+
+    @Override
+    public void uploadToDB(MultipartFile file, String path, String md5, String extName, String url) {
+        blogFileService.uploadToDB(file,path,md5,extName,url);
     }
 }

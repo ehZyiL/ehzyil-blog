@@ -6,7 +6,9 @@ import cn.hutool.core.lang.Assert;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ehzyil.domain.BlogFile;
 import com.ehzyil.domain.User;
+import com.ehzyil.mapper.BlogFileMapper;
 import com.ehzyil.mapper.MenuMapper;
 import com.ehzyil.mapper.RoleMapper;
 import com.ehzyil.mapper.UserMapper;
@@ -21,6 +23,7 @@ import com.ehzyil.model.vo.front.UserInfoVO;
 import com.ehzyil.service.IUserService;
 import com.ehzyil.service.RedisService;
 import com.ehzyil.strategy.context.UploadStrategyContext;
+import com.ehzyil.utils.FileUtils;
 import com.ehzyil.utils.SecurityUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +31,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.ehzyil.constant.CommonConstant.*;
 import static com.ehzyil.constant.RedisConstant.*;
 import static com.ehzyil.enums.FilePathEnum.AVATAR;
+import static com.ehzyil.enums.FilePathEnum.CONFIG;
 
 /**
  * <p>
@@ -59,6 +61,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private RoleMapper roleMapper;
     @Autowired
     private MenuMapper menuMapper;
+    @Autowired
+    private BlogFileMapper blogFileMapper;
 
 
     @Override
@@ -131,17 +135,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public String updateAvatar(MultipartFile multipartFile) {
+    public String updateAvatar(MultipartFile file) {
         //头像上传
-        String avatar = uploadStrategyContext.executeUploadStrategy(multipartFile, AVATAR.getPath());
+        String url = uploadStrategyContext.executeUploadStrategy(file, AVATAR.getFilePath());
 
         //更新用户头像
         User user = User.builder()
                 .id(StpUtil.getLoginIdAsInt())
-                .avatar(avatar)
+                .avatar(url)
                 .build();
         getBaseMapper().updateById(user);
-        return avatar;
+
+        return url;
     }
 
     @Override
