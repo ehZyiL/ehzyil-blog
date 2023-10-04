@@ -2,8 +2,10 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.ehzyil.model.dto.CheckDTO;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.admin.CommentBackVO;
 import com.ehzyil.model.vo.front.CommentVO;
 import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.model.vo.front.RecentCommentVO;
@@ -47,4 +49,20 @@ public interface ICommentService extends IService<Comment> {
      * @return
      */
     List<ReplyVO> listReply(Integer commentId);
+
+    /**
+     * 查看后台评论列表
+     *
+     * @param condition 条件
+     * @return 后台评论列表
+     */
+    PageResult<CommentBackVO> listCommentBackVO(ConditionDTO condition);
+
+
+    /**
+     * 审核评论
+     *
+     * @param check 审核信息
+     */
+    void updateCommentCheck(CheckDTO check);
 }

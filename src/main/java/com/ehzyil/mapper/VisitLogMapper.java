@@ -17,6 +17,18 @@ import java.util.List;
  * @since 2023-09-25
  */
 public interface VisitLogMapper extends BaseMapper<VisitLog> {
+
+    /**
+     * 查询访问日志
+     *
+     * @param limit   页码
+     * @param size    大小
+     * @param keyword 关键字
+     * @return 访问日志列表
+     */
+    List<VisitLog> selectVisitLogList(@Param("limit") Long limit, @Param("size") Long size, @Param("keyword") String keyword);
+
+
     /**
      * 获取7天用户访问结果
      *

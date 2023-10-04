@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ehzyil.mapper.BlogFileMapper">
+    <select id="selectFileVOList" resultType="com.ehzyil.model.vo.admin.FileVO">
+        SELECT id,
+        file_url,
+        file_name,
+        file_size,
+        extend_name,
+        file_path,
+        is_dir,
+        create_time
+        FROM t_blog_file
+        <where>
+            <choose>
+                <when test="filePath == '' ">
+                    file_path = '/'
+                </when>
+                <otherwise>
+                    file_path like concat('%', #{filePath},'%')
+                </otherwise>
+            </choose>
+        </where>
+        LIMIT #{limit}, #{size}
+    </select>
 
+    <select id="selectCountByCase" resultType="java.lang.Long">
+        SELECT count(*) FROM t_blog_file
+        <where>
+            <choose>
+                <when test="filePath == '' ">
+                    file_path = '/'
+                </when>
+                <otherwise>
+                    file_path like
+                    concat('%', #{filePath},'%')
+                </otherwise>
+            </choose>
+        </where>
+    </select>
 </mapper>

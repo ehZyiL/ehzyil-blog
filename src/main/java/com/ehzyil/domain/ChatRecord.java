@@ -1,8 +1,7 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -49,9 +48,10 @@ public class ChatRecord implements Serializable {
 
     @ApiModelProperty(value = "ip来源")
     private String ipSource;
-
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
+
 
 
 }

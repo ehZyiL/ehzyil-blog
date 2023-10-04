@@ -1,12 +1,12 @@
 package com.ehzyil.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author ehyzil
- * @Description
- * @create 2023-09-2023/9/27-15:31
+ * 公共工具类
  */
 public class CommonUtils {
 
@@ -26,5 +26,32 @@ public class CommonUtils {
         return m.matches();
     }
 
-}
+    /**
+     * 获取括号内容
+     *
+     * @param str str
+     * @return {@link String} 括号内容
+     */
+    public static String getBracketsContent(String str) {
+        return str.substring(str.indexOf("(") + 1, str.indexOf(")"));
+    }
 
+    /**
+     * 转换List
+     *
+     * @param obj   obj
+     * @param clazz clazz
+     * @return {@link List<T>}
+     */
+    public static <T> List<T> castList(Object obj, Class<T> clazz) {
+        List<T> result = new ArrayList<T>();
+        if (obj instanceof List<?>) {
+            for (Object o : (List<?>) obj) {
+                result.add(clazz.cast(o));
+            }
+            return result;
+        }
+        return result;
+    }
+
+}

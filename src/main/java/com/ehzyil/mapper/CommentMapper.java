@@ -3,6 +3,7 @@ package com.ehzyil.mapper;
 import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.admin.CommentBackVO;
 import com.ehzyil.model.vo.front.*;
 import org.apache.ibatis.annotations.Param;
 
@@ -67,4 +68,21 @@ public interface CommentMapper extends BaseMapper<Comment> {
      */
     List<ReplyVO> selectReplyByParentId(@Param("limit") Long limit, @Param("size") Long size, @Param("commentId") Integer commentId);
 
+   /**
+     * 查询后台评论列表
+     *
+     * @param limit     分页
+     * @param size      大小
+     * @param condition 条件
+     * @return 评论集合
+     */
+    List<CommentBackVO> listCommentBackVO(@Param("limit") Long limit, @Param("size") Long size, @Param("condition") ConditionDTO condition);
+
+    /**
+     * 查询评论数量
+     *
+     * @param condition 条件
+     * @return 评论数量
+     */
+    Long countComment(@Param("condition") ConditionDTO condition);
 }

@@ -16,4 +16,38 @@
                  t.id DESC
             LIMIT #{limit}, #{size}
     </select>
+
+    <select id="selectTalkBackVO" resultType="com.ehzyil.model.vo.admin.TalkBackVO">
+        SELECT
+        t.id,
+        nickname,
+        avatar,
+        talk_content,
+        images,
+        t.is_top,
+        t.status,
+        t.create_time
+        FROM
+        t_talk t
+        INNER JOIN t_user u ON t.user_id = u.id
+        <where>
+            <if test="status != null">
+                t.status = #{status}
+            </if>
+        </where>
+        ORDER BY
+        t.is_top DESC,
+        t.id DESC
+        LIMIT #{limit},#{size}
+    </select>
+
+    <select id="selectTalkBackById" resultType="com.ehzyil.model.vo.admin.TalkBackInfoVO">
+        SELECT id,
+               talk_content,
+               images,
+               is_top,
+               status
+        FROM t_talk
+        WHERE id = #{talkId}
+    </select>
 </mapper>

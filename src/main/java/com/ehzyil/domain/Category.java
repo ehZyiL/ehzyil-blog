@@ -1,29 +1,31 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ehzyil
  * @since 2023-09-25
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+
 @TableName("t_category")
-@ApiModel(value="Category对象", description="")
+@ApiModel(value = "Category对象", description = "")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,9 +37,11 @@ public class Category implements Serializable {
     @ApiModelProperty(value = "分类名")
     private String categoryName;
 
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.UPDATE)
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

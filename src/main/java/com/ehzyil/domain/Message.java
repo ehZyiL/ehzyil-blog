@@ -7,8 +7,7 @@ import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.models.auth.In;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -24,6 +23,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("t_message")
 @ApiModel(value="Message对象", description="")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;

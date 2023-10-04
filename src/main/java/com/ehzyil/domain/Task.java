@@ -1,8 +1,7 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -56,9 +55,11 @@ public class Task implements Serializable {
     @ApiModelProperty(value = "任务备注信息")
     private String remark;
 
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.UPDATE)
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

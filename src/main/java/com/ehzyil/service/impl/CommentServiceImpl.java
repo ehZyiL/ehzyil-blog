@@ -8,8 +8,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.Comment;
 import com.ehzyil.domain.SiteConfig;
 import com.ehzyil.mapper.CommentMapper;
+import com.ehzyil.model.dto.CheckDTO;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.vo.admin.CommentBackVO;
 import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.ICommentService;
 import com.ehzyil.service.RedisService;
@@ -115,6 +117,28 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         Map<String, Integer> likeCountMap = redisService.getHashAll(COMMENT_LIKE_COUNT);
         replyVOList.forEach(item -> item.setLikeCount(likeCountMap.get(item.getId().toString())));
         return replyVOList;
+    }
+
+    @Override
+    public PageResult<CommentBackVO> listCommentBackVO(ConditionDTO condition) {
+
+        // 查询后台评论数量
+        Long count = getBaseMapper().countComment(condition);
+        if (count == 0) {
+            return new PageResult<>();
+        }
+        // 查询后台评论集合
+        List<CommentBackVO> commentBackVOList = getBaseMapper().listCommentBackVO(PageUtils.getLimit(),
+                PageUtils.getSize(), condition);
+        return new PageResult<>(commentBackVOList, count);
+
+    }
+
+    @Override
+    public void updateCommentCheck(CheckDTO check) {
+        // 修改评论审核状态
+        List<Comment> commentList = check.getIdList().stream().map(id -> Comment.builder().id(id).isCheck(check.getIsCheck()).build()).collect(Collectors.toList());
+        this.updateBatchById(commentList);
     }
 }
 

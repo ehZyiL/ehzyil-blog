@@ -1,25 +1,36 @@
 package com.ehzyil.service.impl;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.Comment;
 import com.ehzyil.domain.Talk;
 import com.ehzyil.domain.User;
+import com.ehzyil.enums.FilePathEnum;
 import com.ehzyil.mapper.CommentMapper;
 import com.ehzyil.mapper.TalkMapper;
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.dto.TalkDTO;
+import com.ehzyil.model.vo.admin.TalkBackInfoVO;
+import com.ehzyil.model.vo.admin.TalkBackVO;
 import com.ehzyil.model.vo.front.CommentCountVO;
 import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.model.vo.front.TalkVO;
 import com.ehzyil.service.ITalkService;
 import com.ehzyil.service.IUserService;
 import com.ehzyil.service.RedisService;
+import com.ehzyil.strategy.context.UploadStrategyContext;
+import com.ehzyil.utils.BeanCopyUtils;
+import com.ehzyil.utils.CommonUtils;
 import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -42,6 +53,9 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
     private IUserService userService;
     @Autowired
     private RedisService redisService;
+
+    @Autowired
+    private UploadStrategyContext uploadStrategyContext;
 
     @Override
     public List<String> listTalkHome() {
@@ -160,5 +174,59 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
         }
 
         return talkVO;
+    }
+
+
+    @Override
+    public PageResult<TalkBackVO> listTalkBackVO(ConditionDTO condition) {
+        // 查询说说数量
+        Long count = getBaseMapper().selectCount(new LambdaQueryWrapper<Talk>()
+                .eq(Objects.nonNull(condition.getStatus()), Talk::getStatus, condition.getStatus()));
+        if (count == 0) {
+            return new PageResult<>();
+        }
+        // 分页查询说说列表
+        List<TalkBackVO> talkBackVOList = getBaseMapper().selectTalkBackVO(PageUtils.getLimit(), PageUtils.getSize(), condition.getStatus());
+        talkBackVOList.forEach(item -> {
+            // 转换图片格式
+            if (Objects.nonNull(item.getImages())) {
+                item.setImgList(CommonUtils.castList(JSON.parseObject(item.getImages(), List.class), String.class));
+            }
+        });
+        return new PageResult<>(talkBackVOList, count);
+    }
+
+    @Override
+    public void addTalk(TalkDTO talk) {
+        Talk newTalk = BeanCopyUtils.copyBean(talk, Talk.class);
+        newTalk.setUserId(StpUtil.getLoginIdAsInt());
+        baseMapper.insert(newTalk);
+    }
+
+    @Override
+    public void deleteTalk(Integer talkId) {
+        getBaseMapper().deleteById(talkId);
+    }
+
+    @Override
+    public void updateTalk(TalkDTO talk) {
+        Talk newTalk = BeanCopyUtils.copyBean(talk, Talk.class);
+        newTalk.setUserId(StpUtil.getLoginIdAsInt());
+        baseMapper.updateById(newTalk);
+    }
+
+    @Override
+    public TalkBackInfoVO editTalk(Integer talkId) {
+        TalkBackInfoVO talkBackVO = getBaseMapper().selectTalkBackById(talkId);
+        // 转换图片格式
+        if (Objects.nonNull(talkBackVO.getImages())) {
+            talkBackVO.setImgList(CommonUtils.castList(JSON.parseObject(talkBackVO.getImages(), List.class), String.class));
+        }
+        return talkBackVO;
+    }
+    @Override
+    public String uploadTalkCover(MultipartFile file) {
+     return uploadStrategyContext.executeUploadStrategy(file, FilePathEnum.TALK.getPath());
+
     }
 }

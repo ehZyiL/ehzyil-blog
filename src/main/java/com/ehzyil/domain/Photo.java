@@ -1,8 +1,7 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -44,9 +43,11 @@ public class Photo implements Serializable {
     @ApiModelProperty(value = "照片链接")
     private String photoUrl;
 
+    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.UPDATE)
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

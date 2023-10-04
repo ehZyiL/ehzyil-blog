@@ -1,14 +1,12 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -20,8 +18,9 @@ import lombok.experimental.Accessors;
  * @since 2023-09-26
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @TableName("t_article")
 @ApiModel(value="Article对象", description="")
 public class Article implements Serializable {
@@ -50,23 +49,25 @@ public class Article implements Serializable {
     private String articleContent;
 
     @ApiModelProperty(value = "类型 (1原创 2转载 3翻译)")
-    private Boolean articleType;
+    private Integer articleType;
 
     @ApiModelProperty(value = "是否置顶 (0否 1是）")
-    private Boolean isTop;
+    private Integer isTop;
 
     @ApiModelProperty(value = "是否删除 (0否 1是)")
-    private Boolean isDelete;
+    private Integer isDelete;
 
     @ApiModelProperty(value = "是否推荐 (0否 1是)")
-    private Boolean isRecommend;
+    private Integer isRecommend;
 
     @ApiModelProperty(value = "状态 (1公开 2私密 3评论可见)")
-    private Boolean status;
+    private Integer status;
 
-    @ApiModelProperty(value = "发表时间")
+    @TableField(fill = FieldFill.INSERT)
+    @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+    @TableField(fill = FieldFill.UPDATE)
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 

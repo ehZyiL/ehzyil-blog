@@ -8,4 +8,19 @@
                            on a.category_id = c.id
         GROUP BY c.id;
     </select>
+
+    <select id="selectCategoryBackVO" resultType="com.ehzyil.model.vo.admin.CategoryBackVO">
+        SELECT c.id, c.category_name,COUNT( a.id ) AS article_count,c.create_time
+        FROM t_category c
+        LEFT JOIN t_article a
+        ON c.id = a.category_id
+        <where>
+            <if test="keyword != null">
+                category_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+        GROUP BY c.id
+        ORDER BY c.id DESC
+        LIMIT #{limit},#{size}
+    </select>
 </mapper>

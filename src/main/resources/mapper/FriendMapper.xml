@@ -6,4 +6,17 @@
         FROM t_friend
 
     </select>
+
+    <select id="selectFriendBackVOList" resultType="com.ehzyil.model.vo.admin.FriendBackVO">
+        SELECT id, `name`, color, avatar, url, introduction, create_time
+        FROM t_friend
+        <where>
+            <if test="keyword != null">
+                `name` like concat('%',#{keyword},'%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        limit #{limit},#{size}
+    </select>
+
 </mapper>

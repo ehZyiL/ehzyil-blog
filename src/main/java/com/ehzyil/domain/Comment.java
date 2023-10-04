@@ -7,6 +7,7 @@ import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.models.auth.In;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,6 +25,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("t_comment")
 @ApiModel(value="Comment对象", description="")
+@Builder
 public class Comment implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -10,6 +10,36 @@
     </select>
 
     <select id="selectTagOptionList" resultType="com.ehzyil.model.vo.front.TagOptionVO">
-        select id, tag_name from t_tag
+        select id, tag_name
+        from t_tag
+    </select>
+
+    <select id="selectTagBackVO" resultType="com.ehzyil.model.vo.admin.TagBackVO">
+        SELECT t.id, t.tag_name, COUNT(tat.article_id) as article_count, t.create_time
+        FROM t_tag t
+        LEFT JOIN t_article_tag tat
+        ON t.id = tat.tag_id
+        <where>
+            <if test="keyword != null">
+                tag_name like concat('%',#{keyword},'%')
+            </if>
+        </where>
+        GROUP BY t.id
+        ORDER BY t.id DESC
+        LIMIT #{limit},#{size}
+    </select>
+
+    <select id="selectTagList" resultType="com.ehzyil.domain.Tag">
+        select id, tag_name from t_tag where tag_name in
+        <foreach collection="tagNameList" item="tagName" open="(" separator="," close=")">
+            #{tagName}
+        </foreach>
+    </select>
+
+    <select id="selectTagNameByArticleId" resultType="java.lang.String">
+        SELECT tag_name
+        FROM t_tag t
+                 INNER JOIN t_article_tag tat ON t.id = tat.tag_id
+        WHERE article_id = #{articleId}
     </select>
 </mapper>
