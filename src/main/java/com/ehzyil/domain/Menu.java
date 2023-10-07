@@ -6,8 +6,7 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 /**
@@ -19,8 +18,9 @@ import lombok.experimental.Accessors;
  * @since 2023-09-25
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @TableName("t_menu")
 @ApiModel(value="Menu对象", description="")
 public class Menu implements Serializable {
@@ -53,10 +53,10 @@ public class Menu implements Serializable {
     private String perms;
 
     @ApiModelProperty(value = "是否隐藏 (0否 1是)")
-    private Boolean isHidden;
+    private Integer isHidden;
 
     @ApiModelProperty(value = "是否禁用 (0否 1是)")
-    private Boolean isDisable;
+    private Integer isDisable;
 
     @ApiModelProperty(value = "排序")
     private Integer orderNum;

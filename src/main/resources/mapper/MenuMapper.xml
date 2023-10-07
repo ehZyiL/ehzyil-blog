@@ -29,4 +29,63 @@
           AND ur.user_id = #{userId}
         ORDER BY m.parent_id, m.order_num
     </select>
+
+    <select id="selectMenuById" resultType="com.ehzyil.model.dto.MenuDTO">
+        SELECT id,
+               parent_id,
+               menu_type,
+               menu_name,
+               path,
+               icon,
+               component,
+               perms,
+               is_hidden,
+               is_disable,
+               order_num
+        FROM t_menu
+        WHERE id = #{menuId}
+    </select>
+    <select id="selectMenuVOList" resultType="com.ehzyil.model.vo.admin.MenuVO"
+            parameterType="com.ehzyil.model.dto.ConditionDTO">
+        SELECT id,
+        parent_id,
+        menu_type,
+        menu_name,
+        path,
+        icon,
+        component,
+        perms,
+        is_hidden,
+        is_disable,
+        order_num,
+        create_time
+        FROM t_menu
+        <where>
+            <if test="condition.keyword!=null">
+                and menu_name like concat('%', #{condition.keyword}, '%')
+            </if>
+
+            <if test="condition.isDisable!=null">
+                and is_disable = #{condition.isDisable}
+            </if>
+        </where>
+        order by order_num
+    </select>
+    <select id="selectMenuOptions" resultType="com.ehzyil.model.vo.admin.MenuOption">
+        SELECT id        as `value`,
+               parent_id,
+               menu_name as label
+        FROM t_menu
+        WHERE is_disable = 0
+          AND menu_type IN ('M', 'C')
+        ORDER BY order_num
+    </select>
+    <select id="selectMenuTree" resultType="com.ehzyil.model.vo.admin.MenuTree">
+        SELECT id,
+               parent_id,
+               menu_name as label
+        FROM t_menu
+        WHERE is_disable = 0
+        ORDER BY order_num
+    </select>
 </mapper>

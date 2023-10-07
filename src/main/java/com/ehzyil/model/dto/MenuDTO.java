@@ -1,22 +1,18 @@
-package com.ehzyil.model.vo.admin;
+package com.ehzyil.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
- * @author ehyzil
- * @Description
- * @create 2023-10-2023/10/3-21:51
- */
+ * 菜单DTO
+ **/
 @Data
-@ApiModel(description = "菜单VO")
-public class MenuVO {
+@ApiModel(description = "菜单DTO")
+public class MenuDTO {
 
     /**
      * 菜单id
@@ -31,16 +27,18 @@ public class MenuVO {
     private Integer parentId;
 
     /**
-     * 类型（M目录 C菜单 B按钮）
-     */
-    @ApiModelProperty(value = "类型（M目录 C菜单 B按钮）")
-    private String menuType;
-
-    /**
      * 菜单名称
      */
+    @NotBlank(message = "菜单名称不能为空")
     @ApiModelProperty(value = "菜单名称")
     private String menuName;
+
+    /**
+     * 类型（M目录 C菜单 B按钮）
+     */
+    @NotBlank(message = "类型不能为空")
+    @ApiModelProperty(value = "类型（M目录 C菜单 B按钮）")
+    private String menuType;
 
     /**
      * 路由地址
@@ -61,12 +59,6 @@ public class MenuVO {
     private String component;
 
     /**
-     * 权限标识
-     */
-    @ApiModelProperty(value = "权限标识")
-    private String perms;
-
-    /**
      * 是否隐藏 (0否 1是)
      */
     @ApiModelProperty(value = "是否隐藏 (0否 1是)")
@@ -81,20 +73,14 @@ public class MenuVO {
     /**
      * 菜单排序
      */
+    @NotNull(message = "菜单排序不能为空")
     @ApiModelProperty(value = "菜单排序")
     private Integer orderNum;
 
     /**
-     * 创建时间
+     * 权限标识
      */
-    @ApiModelProperty(value = "创建时间")
-    private LocalDateTime createTime;
-
-    /**
-     * 子菜单列表
-     */
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @ApiModelProperty(value = "子菜单列表")
-    private List<MenuVO> children;
+    @ApiModelProperty(value = "权限标识")
+    private String perms;
 
 }

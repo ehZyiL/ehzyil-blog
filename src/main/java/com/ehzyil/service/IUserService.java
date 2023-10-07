@@ -2,11 +2,10 @@ package com.ehzyil.service;
 
 import com.ehzyil.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ehzyil.model.dto.EmailDTO;
-import com.ehzyil.model.dto.UserInfoDTO;
-import com.ehzyil.model.dto.UserPasswordDTO;
-import com.ehzyil.model.vo.admin.RouterVO;
-import com.ehzyil.model.vo.admin.UserBackInfoVO;
+import com.ehzyil.model.dto.*;
+import com.ehzyil.model.vo.admin.*;
+import com.ehzyil.model.vo.front.OnlineVO;
+import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.model.vo.front.UserInfoVO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,4 +49,56 @@ public interface IUserService extends IService<User> {
      * @return
      */
     List<RouterVO> getUserMenu();
+
+
+    /**
+     * 查看后台用户列表
+     *
+     * @param condition 条件
+     * @return 用户列表
+     */
+    PageResult<UserBackVO> listUserBackVO(ConditionDTO condition);
+
+    /**
+     * 查看用户角色选项
+     *
+     * @return 用户角色选项
+     */
+    List<UserRoleVO> listUserRoleDTO();
+
+    /**
+     * 修改用户
+     *
+     * @param user 用户信息
+     */
+    void updateUser(UserRoleDTO user);
+
+    /**
+     * 修改用户状态
+     *
+     * @param disable 禁用信息
+     */
+    void updateUserStatus(DisableDTO disable);
+
+    /**
+     * 查看在线用户列表
+     *
+     * @param condition 条件
+     * @return 在线用户列表
+     */
+    PageResult<OnlineVO> listOnlineUser(ConditionDTO condition);
+
+    /**
+     * 下线用户
+     *
+     * @param token 在线token
+     */
+    void kickOutUser(String token);
+
+    /**
+     * 修改管理员密码
+     *
+     * @param password 密码
+     */
+    void updateAdminPassword(PasswordDTO password);
 }

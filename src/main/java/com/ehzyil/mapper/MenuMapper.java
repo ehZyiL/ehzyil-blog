@@ -2,6 +2,11 @@ package com.ehzyil.mapper;
 
 import com.ehzyil.domain.Menu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.dto.MenuDTO;
+import com.ehzyil.model.vo.admin.MenuOption;
+import com.ehzyil.model.vo.admin.MenuTree;
+import com.ehzyil.model.vo.admin.MenuVO;
 import com.ehzyil.model.vo.admin.UserMenuVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -31,4 +36,34 @@ public interface MenuMapper extends BaseMapper<Menu> {
      * @return 用户菜单列表
      */
     List<UserMenuVO> selectMenuByUserId(@Param("userId") Integer userId);
+
+    /**
+     * 根据id查询菜单信息
+     *
+     * @param menuId 菜单id
+     * @return 菜单
+     */
+    MenuDTO selectMenuById(@Param("menuId") Integer menuId);
+
+    /**
+     * 查询菜单列表
+     *
+     * @param condition 查询条件
+     * @return 菜单列表
+     */
+    List<MenuVO> selectMenuVOList(@Param("condition") ConditionDTO condition);
+
+    /**
+     * 查询菜单选项树
+     *
+     * @return 菜单选项树
+     */
+    List<MenuOption> selectMenuOptions();
+
+    /**
+     * 查询菜单下拉树
+     *
+     * @return 菜单下拉树
+     */
+    List<MenuTree> selectMenuTree();
 }

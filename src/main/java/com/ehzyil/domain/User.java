@@ -64,7 +64,7 @@ public class User implements Serializable {
     private Integer loginType;
 
     @ApiModelProperty(value = "是否禁用 (0否 1是)")
-    private Boolean isDisable;
+    private Integer isDisable;
 
     @ApiModelProperty(value = "登录时间")
     private LocalDateTime loginTime;

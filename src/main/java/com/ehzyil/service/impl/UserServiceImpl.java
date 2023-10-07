@@ -1,5 +1,6 @@
 package com.ehzyil.service.impl;
 
+import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
@@ -8,17 +9,12 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.BlogFile;
 import com.ehzyil.domain.User;
-import com.ehzyil.mapper.BlogFileMapper;
-import com.ehzyil.mapper.MenuMapper;
-import com.ehzyil.mapper.RoleMapper;
-import com.ehzyil.mapper.UserMapper;
-import com.ehzyil.model.dto.EmailDTO;
-import com.ehzyil.model.dto.UserInfoDTO;
-import com.ehzyil.model.dto.UserPasswordDTO;
-import com.ehzyil.model.vo.admin.MetaVO;
-import com.ehzyil.model.vo.admin.RouterVO;
-import com.ehzyil.model.vo.admin.UserBackInfoVO;
-import com.ehzyil.model.vo.admin.UserMenuVO;
+import com.ehzyil.domain.UserRole;
+import com.ehzyil.mapper.*;
+import com.ehzyil.model.dto.*;
+import com.ehzyil.model.vo.admin.*;
+import com.ehzyil.model.vo.front.OnlineVO;
+import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.model.vo.front.UserInfoVO;
 import com.ehzyil.service.IUserService;
 import com.ehzyil.service.RedisService;
@@ -39,6 +35,8 @@ import static com.ehzyil.constant.CommonConstant.*;
 import static com.ehzyil.constant.RedisConstant.*;
 import static com.ehzyil.enums.FilePathEnum.AVATAR;
 import static com.ehzyil.enums.FilePathEnum.CONFIG;
+import static com.ehzyil.utils.PageUtils.getLimit;
+import static com.ehzyil.utils.PageUtils.getSize;
 
 /**
  * <p>
@@ -63,6 +61,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private MenuMapper menuMapper;
     @Autowired
     private BlogFileMapper blogFileMapper;
+
+    @Autowired
+    private UserRoleMapper  userRoleMapper;
 
 
     @Override
@@ -186,6 +187,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         return recurRoutes(PARENT_ID, userMenuVOList);
     }
 
+
+
     /**
      * 递归生成路由列表
      *
@@ -300,5 +303,102 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         Assert.isTrue(sysCode.equals(code), "验证码错误，请重新输入！");
     }
 
+
+    @Override
+    public PageResult<UserBackVO> listUserBackVO(ConditionDTO condition) {
+        // 查询后台用户数量
+        Long count = getBaseMapper().countUser(condition);
+        if (count == 0) {
+            return new PageResult<>();
+        }
+        // 查询后台用户列表
+        List<UserBackVO> userBackVOList = getBaseMapper().listUserBackVO(getLimit(), getSize(), condition);
+        return new PageResult<>(userBackVOList, count);
+    }
+
+
+    @Override
+    public List<UserRoleVO> listUserRoleDTO() {
+        // 查询角色列表
+        return roleMapper.selectUserRoleList();
+    }
+
+    @Override
+    public void updateUser(UserRoleDTO user) {
+        // 更新用户信息
+        User newUser = User.builder()
+                .id(user.getId())
+                .nickname(user.getNickname())
+                .build();
+        baseMapper.updateById(newUser);
+        // 删除用户角色
+        userRoleMapper.delete(new LambdaQueryWrapper<UserRole>().eq(UserRole::getUserId, user.getId()));
+        // 重新添加用户角色
+        userRoleMapper.insertUserRole(user.getId(), user.getRoleIdList());
+        // 删除Redis缓存中的角色
+        SaSession sessionByLoginId = StpUtil.getSessionByLoginId(user.getId(), false);
+        Optional.ofNullable(sessionByLoginId).ifPresent(saSession -> saSession.delete("Role_List"));
+    }
+
+    @Override
+    public void updateUserStatus(DisableDTO disable) {
+        // 更新用户状态
+        User newUser = User.builder()
+                .id(disable.getId())
+                .isDisable(disable.getIsDisable())
+                .build();
+        getBaseMapper().updateById(newUser);
+        if (disable.getIsDisable().equals(TRUE)) {
+            // 先踢下线
+            StpUtil.logout(disable.getId());
+            // 再封禁账号
+            StpUtil.disable(disable.getId(), 86400);
+        } else {
+            // 解除封禁
+            StpUtil.untieDisable(disable.getId());
+        }
+    }
+
+
+
+    @Override
+    public void updateAdminPassword(PasswordDTO password) {
+        Integer userId = StpUtil.getLoginIdAsInt();
+        // 查询旧密码是否正确
+        User user = getBaseMapper().selectOne(new LambdaQueryWrapper<User>()
+                .eq(User::getId, userId));
+        Assert.notNull(user, "用户不存在");
+        Assert.isTrue(SecurityUtils.checkPw(user.getPassword(), password.getOldPassword()), "旧密码校验不通过!");
+        // 正确则修改密码
+        String newPassword = SecurityUtils.sha256Encrypt(password.getNewPassword());
+        user.setPassword(newPassword);
+        getBaseMapper().updateById(user);
+    }
+
+    @Override
+    public PageResult<OnlineVO> listOnlineUser(ConditionDTO condition) {
+        // 查询所有会话token
+        List<String> tokenList = StpUtil.searchTokenSessionId("", 0, -1, false);
+        List<OnlineVO> onlineVOList = tokenList.stream()
+                .map(token -> {
+                    // 获取tokenSession
+                    SaSession sessionBySessionId = StpUtil.getSessionBySessionId(token);
+                    return (OnlineVO) sessionBySessionId.get(ONLINE_USER);
+                })
+                .filter(onlineVO -> StringUtils.isEmpty(condition.getKeyword()) || onlineVO.getNickname().contains(condition.getKeyword()))
+                .sorted(Comparator.comparing(OnlineVO::getLoginTime).reversed())
+                .collect(Collectors.toList());
+        // 执行分页
+        int fromIndex = getLimit().intValue();
+        int size = getSize().intValue();
+        int toIndex = onlineVOList.size() - fromIndex > size ? fromIndex + size : onlineVOList.size();
+        List<OnlineVO> userOnlineList = onlineVOList.subList(fromIndex, toIndex);
+        return new PageResult<>(userOnlineList, (long) onlineVOList.size());
+    }
+
+    @Override
+    public void kickOutUser(String token) {
+        StpUtil.logoutByTokenValue(token);
+    }
 
 }
