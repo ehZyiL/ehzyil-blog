@@ -2,6 +2,7 @@ package com.ehzyil.model.vo.admin;
 
 import com.ehzyil.model.vo.front.CategoryVO;
 import com.ehzyil.model.vo.front.TagOptionVO;
+import com.ehzyil.model.vo.front.UserViewVO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;

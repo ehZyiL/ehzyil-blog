@@ -1,58 +1,64 @@
 package com.ehzyil.domain;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 
- * </p>
+ * 定时任务日志
  *
- * @author ehzyil
- * @since 2023-09-25
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("t_task_log")
-@ApiModel(value="TaskLog对象", description="")
-public class TaskLog implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class TaskLog {
 
-    private static final long serialVersionUID = 1L;
-
-    @ApiModelProperty(value = "任务日志id")
-    @TableId(value = "id", type = IdType.AUTO)
+    /**
+     * 任务日志id
+     */
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "任务名称")
+    /**
+     * 任务名称
+     */
     private String taskName;
 
-    @ApiModelProperty(value = "任务组名")
+    /**
+     * 任务组名
+     */
     private String taskGroup;
 
-    @ApiModelProperty(value = "调用目标字符串")
+    /**
+     * 调用目标字符串
+     */
     private String invokeTarget;
 
-    @ApiModelProperty(value = "日志信息")
+    /**
+     * 日志信息
+     */
     private String taskMessage;
 
-    @ApiModelProperty(value = "执行状态 (0失败 1正常)")
-    private Boolean status;
+    /**
+     * 执行状态 (0失败 1正常)
+     */
+    private Integer status;
 
+    /**
+     * 错误信息
+     */
+    private String errorInfo;
+
+    /**
+     * 创建时间
+     */
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
-
-    @TableField(fill = FieldFill.UPDATE)
-    @ApiModelProperty(value = "更新时间")
-    private LocalDateTime updateTime;
-
 
 }

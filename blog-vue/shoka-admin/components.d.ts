@@ -55,7 +55,6 @@ declare module '@vue/runtime-core' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTransfer: typeof import('element-plus/es')['ElTransfer']
-    ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     EmojiExtension: typeof import('./src/components/EmojiExtension/index.vue')['default']
     GithubCorner: typeof import('./src/components/GithubCorner/index.vue')['default']

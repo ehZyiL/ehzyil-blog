@@ -3,7 +3,7 @@ package com.ehzyil.mapper;
 import com.ehzyil.domain.Task;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.vo.TaskBackVO;
+import com.ehzyil.model.vo.admin.TaskBackVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

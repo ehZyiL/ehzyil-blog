@@ -12,6 +12,7 @@ import com.ehzyil.model.dto.CheckDTO;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
 import com.ehzyil.model.vo.admin.CommentBackVO;
+import com.ehzyil.model.vo.front.RecentCommentVO;
 import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.ICommentService;
 import com.ehzyil.service.RedisService;
@@ -71,7 +72,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         // 分组查询每组父评论下的子评论前三条
         List<CommentReplyVO> commentReplyVOS = getBaseMapper().selectReplyByParentIdList(parentCommentIdList);
         // 封装子评论点赞量
-        commentReplyVOS.forEach(commentReplyVO ->  commentReplyVO.setLikeCount(Optional.ofNullable(likeCountMap.get(commentReplyVO.getId().toString())).orElse(0)));
+        commentReplyVOS.forEach(commentReplyVO -> commentReplyVO.setLikeCount(Optional.ofNullable(likeCountMap.get(commentReplyVO.getId().toString())).orElse(0)));
         // 根据父评论id生成对应子评论的Map
         Map<Integer, List<CommentReplyVO>> replyMap = commentReplyVOS.stream().collect(Collectors.groupingBy(CommentReplyVO::getParentId));
         // 父评论的回复数量

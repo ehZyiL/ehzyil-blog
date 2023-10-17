@@ -6,8 +6,8 @@ import com.ehzyil.model.dto.ConditionDTO;
 import com.ehzyil.model.dto.StatusDTO;
 import com.ehzyil.model.dto.TaskDTO;
 import com.ehzyil.model.dto.TaskRunDTO;
-import com.ehzyil.model.vo.PageResult;
-import com.ehzyil.model.vo.TaskBackVO;
+import com.ehzyil.model.vo.admin.TaskBackVO;
+import com.ehzyil.model.vo.front.PageResult;
 
 import java.util.List;
 

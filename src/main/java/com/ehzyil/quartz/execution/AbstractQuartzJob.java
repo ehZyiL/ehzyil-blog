@@ -13,10 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 
 import java.util.Date;
-import com.ehzyil.constant.*;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
+import static com.ehzyil.constant.CommonConstant.FALSE;
+import static com.ehzyil.constant.CommonConstant.TRUE;
 
 
 /**

@@ -1,16 +1,16 @@
 package com.ehzyil.mapper;
 
 import cn.hutool.core.date.DateTime;
-import com.ehzyil.domain.VisitLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ehzyil.model.vo.UserViewVO;
+import com.ehzyil.domain.VisitLog;
+import com.ehzyil.model.vo.front.UserViewVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author ehzyil

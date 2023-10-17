@@ -17,7 +17,7 @@
         </where>
     </select>
 
-    <select id="selectTaskBackVO" resultType="com.ehzyil.model.vo.TaskBackVO">
+    <select id="selectTaskBackVO" resultType="com.ehzyil.model.vo.admin.TaskBackVO">
         select id,task_name,task_group,invoke_target,cron_expression,misfire_policy,concurrent,status,remark,create_time
         from t_task
         <where>

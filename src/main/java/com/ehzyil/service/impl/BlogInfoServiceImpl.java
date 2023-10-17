@@ -10,20 +10,18 @@ import com.ehzyil.mapper.*;
 import com.ehzyil.model.vo.admin.ArticleRankVO;
 import com.ehzyil.model.vo.admin.ArticleStatisticsVO;
 import com.ehzyil.model.vo.admin.BlogBackInfoVO;
-import com.ehzyil.model.vo.admin.UserViewVO;
 import com.ehzyil.model.vo.front.BlogInfoVO;
 import com.ehzyil.model.vo.front.CategoryVO;
 import com.ehzyil.model.vo.front.TagOptionVO;
+import com.ehzyil.model.vo.front.UserViewVO;
 import com.ehzyil.service.BlogInfoService;
 import com.ehzyil.service.ISiteConfigService;
 import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.UserAgentUtils;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
-import org.springframework.util.comparator.Comparators;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -158,21 +156,21 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     private List<ArticleRankVO> listArticleRank(Map<Object, Double> articleMap) {
         //提取文章id
         ArrayList<Integer> articleIdList = new ArrayList<>();
-        articleMap.forEach((key, value)->articleIdList.add((Integer) key));
+        articleMap.forEach((key, value) -> articleIdList.add((Integer) key));
 
         //查询文章
         List<Article> articleList = articleMapper.selectList(new LambdaQueryWrapper<Article>().
                 select(Article::getId, Article::getArticleTitle)
                 .in(Article::getId, articleIdList));
         //封装数据
-         return  articleList.stream().map(article ->
-                ArticleRankVO.builder()
-                        .articleTitle(article.getArticleTitle())
-                        //查询浏览量
-                        .viewCount( articleMap.get(article.getId()).intValue())
-                        .build()).
+        return articleList.stream().map(article ->
+                        ArticleRankVO.builder()
+                                .articleTitle(article.getArticleTitle())
+                                //查询浏览量
+                                .viewCount(articleMap.get(article.getId()).intValue())
+                                .build()).
                 //排序 反转
-                sorted(Comparator.comparingInt(ArticleRankVO::getViewCount).reversed())
-                 .collect(Collectors.toList());
+                        sorted(Comparator.comparingInt(ArticleRankVO::getViewCount).reversed())
+                .collect(Collectors.toList());
     }
 }

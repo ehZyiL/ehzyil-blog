@@ -1,9 +1,10 @@
 package com.ehzyil.mapper;
 
-import com.ehzyil.domain.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ehzyil.domain.Comment;
 import com.ehzyil.model.dto.ConditionDTO;
 import com.ehzyil.model.vo.admin.CommentBackVO;
+import com.ehzyil.model.vo.front.RecentCommentVO;
 import com.ehzyil.model.vo.front.*;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author ehzyil
@@ -20,32 +21,36 @@ import java.util.List;
 public interface CommentMapper extends BaseMapper<Comment> {
     /**
      * 根据评论ids获取评论数
+     *
      * @param typeIdList
      * @param commentType
      * @return
      */
-    List<CommentCountVO>  selectCommentCountByTypeId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
+    List<CommentCountVO> selectCommentCountByTypeId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
 
     /**
      * 查询最近评论
+     *
      * @return
      */
-    List<RecentCommentVO>  selectRecentCommentVOList();
+    List<RecentCommentVO> selectRecentCommentVOList();
 
     /**
      * 查询父评论
+     *
      * @param limit
      * @param size
      * @param conditionDTO
      * @return
      */
     List<CommentVO> selectParentComment(
-            @Param("limit")Long limit,
-            @Param("size")Long size,
+            @Param("limit") Long limit,
+            @Param("size") Long size,
             @Param("conditionDTO") ConditionDTO conditionDTO);
 
     /**
      * 查看回复评论
+     *
      * @param parentCommentIdList
      * @return
      */
@@ -53,11 +58,13 @@ public interface CommentMapper extends BaseMapper<Comment> {
 
     /**
      * 父评论的回复数
+     *
      * @param typeIdList
      * @param commentType
      * @return
      */
-    List<CommentReplyCountVO>  selectReplyCountByParentId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
+    List<CommentReplyCountVO> selectReplyCountByParentId(@Param("typeIdList") List<Integer> typeIdList, @Param("commentType") String commentType);
+
     /**
      * 查询父评论下的子评论
      *
@@ -68,7 +75,7 @@ public interface CommentMapper extends BaseMapper<Comment> {
      */
     List<ReplyVO> selectReplyByParentId(@Param("limit") Long limit, @Param("size") Long size, @Param("commentId") Integer commentId);
 
-   /**
+    /**
      * 查询后台评论列表
      *
      * @param limit     分页

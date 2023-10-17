@@ -27,7 +27,7 @@
         LEFT JOIN t_visit_log tvl ON temp.id = tvl.id
     </select>
 
-    <select id="selectUserViewList" resultType="com.ehzyil.model.vo.UserViewVO">
+    <select id="selectUserViewList" resultType="com.ehzyil.model.vo.front.UserViewVO">
         select count(distinct ip_address)           as uv,
                count(create_time)                   as pv,
                DATE_FORMAT(create_time, '%Y-%m-%d') as `date`
