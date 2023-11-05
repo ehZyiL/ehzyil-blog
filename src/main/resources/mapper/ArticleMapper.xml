@@ -5,7 +5,6 @@
         <id column="article_id" property="id"/>
         <result column="article_cover" property="articleCover"/>
         <result column="article_title" property="articleTitle"/>
-        <result column="article_description" property="articleDescription"/>
         <result column="is_top" property="isTop"/>
         <result column="create_time" property="createTime"/>
         <association property="category" javaType="com.ehzyil.model.vo.front.CategoryOptionVO">
@@ -22,7 +21,7 @@
         <id column="id" property="id"/>
         <result column="article_cover" property="articleCover"/>
         <result column="article_title" property="articleTitle"/>
-        <result column="article_description" property="articleDescription"/>
+
         <result column="article_content" property="articleContent"/>
         <result column="article_type" property="articleType"/>
         <result column="create_time" property="createTime"/>
@@ -62,7 +61,6 @@
         select article_id,
                article_cover,
                article_title,
-               article_description,
                a.create_time,
                a.article_type,
                a.is_top,
@@ -75,7 +73,6 @@
                      article_cover,
                      category_id,
                      article_title,
-                     article_description,
                      article_type,
                      is_top,
                      is_recommend,
@@ -111,7 +108,7 @@
                category_id,
                article_title,
                article_content,
-               article_description,
+
                article_type,
                a.create_time,
                a.update_time,

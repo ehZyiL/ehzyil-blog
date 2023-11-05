@@ -12,7 +12,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.18.128:3306/blog?serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://192.168.18.130:3306/blog?serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
     username: root
     password: root
     druid:
@@ -49,11 +49,11 @@ spring:
   # redis配置
   redis:
     # Redis服务器地址
-    host: 192.168.18.128
+    host: 192.168.18.130
     # Redis服务器连接端口
     port: 6379
     # Redis服务器连接密码（默认为空）
-    password: 666666
+    password: redis
     # 连接超时时间
     timeout: 10s
     lettuce:
@@ -106,23 +106,16 @@ upload:
     # 本地文件存储路径
     path: /usr/local/upload/
   # oss存储
-  oss:
+  minio:
     url: http://Bucket域名/
     endpoint: OSS配置endpoint
     bucketName: OSS配置bucketName
     accessKeyId: OSS配置accessKeyId
     accesskeySecret: OSS配置accesskeySecret
-  # cos存储
-  cos:
-    url: https://Bucket域名/
-    secretId: COS配置secretId
-    secretKey: COS配置secretKey
-    region: COS配置region
-    bucketName: COS配置bucketName
   # qiniu存储(七牛云)
   qiniu:
-    url: http://s14jjz3r5.hb-bkt.clouddn.com/  # 访问域名(给存储桶绑定的二级域名)
-    bucketName: ehzyil-blog # 空间名称bucketName
+    url: http://s3hooptsf.hb-bkt.clouddn.com/  # 访问域名(给存储桶绑定的二级域名)
+    bucketName: ehzyil # 空间名称bucketName
     region: huabei # 存储区域 华南(huanan) 华北(huabei)...
     accessKey: CSOFmR7_70ThEOZqlgTdbe2HnvOjbjPdCHt8CZrb  #accessKey
     secretKey: _D-S6V1rBT2jjnZrX-Z_s30Aw6SNO1ydOFYHnUoC  #secretKey

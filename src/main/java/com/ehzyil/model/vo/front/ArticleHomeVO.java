@@ -33,11 +33,6 @@ public class ArticleHomeVO {
     @ApiModelProperty(value = "文章标题")
     private String articleTitle;
 
-    /**
-     * 文章内容
-     */
-    @ApiModelProperty(value = "文章描述")
-    private String articleDescription;
 
     /**
      * 文章分类
