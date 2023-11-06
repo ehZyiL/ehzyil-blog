@@ -31,7 +31,9 @@ public class CommentLikeStrategyImpl implements LikeStrategy {
     @Override
     public void like(Integer commentId) {
         // 判断评论是否存在或是否通过或是否进入回收站
-        Comment comment = commentMapper.selectOne(new LambdaQueryWrapper<Comment>().select(Comment::getId, Comment::getIsCheck).eq(Comment::getId, commentId).last("limit 1"));
+        Comment comment = commentMapper.selectOne(new LambdaQueryWrapper<Comment>()
+                .select(Comment::getId, Comment::getIsCheck)
+                .eq(Comment::getId, commentId).last("limit 1"));
         Assert.isFalse(Objects.isNull(comment) || comment.getIsCheck().equals(FALSE), "文章不存在");
         // 用户id作为键，评论id作为值，记录用户点赞记录
         String userLikeCommentKey = USER_COMMENT_LIKE + StpUtil.getLoginIdAsInt();

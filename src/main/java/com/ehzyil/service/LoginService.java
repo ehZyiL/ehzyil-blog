@@ -10,13 +10,6 @@ import com.ehzyil.model.dto.RegisterDTO;
  */
 public interface LoginService {
 
-//    /**
-//     * 用户登录
-//     *
-//     * @param login 登录参数
-//     * @return token
-//     */
-//    String login(LoginDTO login);
 
     /**
      * 发送验证码

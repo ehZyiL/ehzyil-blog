@@ -1,10 +1,9 @@
-
-
 package com.ehzyil.utils;
 
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
-
+import com.ehzyil.model.dto.MailDTO;
+//TODO 待修复
 public class AlarmUtil extends AppenderBase<ILoggingEvent> {
     private static final long INTERVAL = 10 * 1000 * 60;
     private long lastAlarmTime = 0;
@@ -12,9 +11,13 @@ public class AlarmUtil extends AppenderBase<ILoggingEvent> {
     @Override
     protected void append(ILoggingEvent iLoggingEvent) {
         if (canAlarm()) {
-//            EmailUtil.sendMail(iLoggingEvent.getLoggerName(),
-//                    SpringUtil.getConfig("alarm.user", "xhhuiblog@163.com"),
-//                    iLoggingEvent.getFormattedMessage());
+            System.out.println("hhhhhhhhhhhhhh");
+            EmailUtil.sendMail(
+                    MailDTO.builder().
+                            toEmail(SpringUtils.getConfig("spring.mail.username", "495028518@qq.com")).
+                            subject(iLoggingEvent.getLoggerName()).
+                            content(iLoggingEvent.getFormattedMessage()).
+                            build());
         }
     }
 

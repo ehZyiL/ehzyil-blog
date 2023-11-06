@@ -4,10 +4,14 @@ import com.alibaba.fastjson2.JSON;
 import com.ehzyil.domain.ExceptionLog;
 import com.ehzyil.manager.AsyncManager;
 import com.ehzyil.manager.factory.AsyncFactory;
+import com.ehzyil.model.dto.MailDTO;
+import com.ehzyil.utils.EmailUtil;
 import com.ehzyil.utils.IpUtils;
+import com.ehzyil.utils.SpringUtils;
 import com.ehzyil.utils.UserAgentUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -30,6 +34,7 @@ import java.util.Objects;
  */
 @Aspect
 @Component
+@Slf4j
 public class ExceptionLogAspect {
 
     /**
@@ -92,6 +97,15 @@ public class ExceptionLogAspect {
         Map<String, String> userAgentMap = UserAgentUtils.parseOsAndBrowser(request.getHeader("User-Agent"));
         exceptionLog.setOs(userAgentMap.get("os"));
         exceptionLog.setBrowser(userAgentMap.get("browser"));
+
+        EmailUtil.sendMail(
+                MailDTO.builder().
+                        toEmail(SpringUtils.getConfig("spring.mail.username", "495028518@qq.com")).
+                        subject("服务出现异常！").
+                        content(exceptionLog.toString()).
+                        build());
+
+
         // 保存到数据库
         AsyncManager.getInstance().execute(AsyncFactory.recordException(exceptionLog));
     }

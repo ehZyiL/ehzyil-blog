@@ -49,7 +49,7 @@ public class SiteConfigServiceImpl extends ServiceImpl<SiteConfigMapper, SiteCon
         return siteConfig;
     }
 
-    @CacheEvict(key = "SiteConfig", cacheManager = "caffeineCacheManager", cacheNames = "SiteConfig")
+//    @CacheEvict(key = "SiteConfig", cacheManager = "caffeineCacheManager", cacheNames = "SiteConfig")
     @Override
     public void updateSiteConfig(SiteConfig siteConfig) {
         baseMapper.updateById(siteConfig);

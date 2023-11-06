@@ -12,21 +12,27 @@ import com.ehzyil.domain.UserRole;
 import com.ehzyil.model.dto.LoginDTO;
 import com.ehzyil.model.dto.MailDTO;
 import com.ehzyil.model.dto.RegisterDTO;
-import com.ehzyil.service.*;
+import com.ehzyil.service.IUserRoleService;
+import com.ehzyil.service.IUserService;
+import com.ehzyil.service.LoginService;
+import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.SecurityUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 import static com.ehzyil.constant.CommonConstant.CAPTCHA;
 import static com.ehzyil.constant.CommonConstant.USER_NICKNAME;
+import static com.ehzyil.constant.MqConstant.EMAIL_EXCHANGE;
+import static com.ehzyil.constant.MqConstant.EMAIL_SIMPLE_KEY;
 import static com.ehzyil.constant.RedisConstant.*;
 import static com.ehzyil.enums.LoginTypeEnum.EMAIL;
 import static com.ehzyil.enums.RoleEnum.USER;
 import static com.ehzyil.utils.CommonUtils.checkEmail;
-import static java.lang.Boolean.FALSE;
 
 /**
  * @author ehyzil
@@ -43,14 +49,14 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private IUserRoleService userRoleService;
-
-    @Autowired
-    private EmailService emailService;
+    @Resource
+    private RabbitTemplate rabbitTemplate;
 
     @Override
     public void sendCode(String username) {
         //检验邮箱 失败抛出 IllegalArgumentException
         Assert.isTrue(checkEmail(username), "请输入正确的邮箱！");
+        System.out.println(1/0);
 
         //随机生成验证
         RandomGenerator randomGenerator = new RandomGenerator("0123456789", 6);
@@ -61,10 +67,9 @@ public class LoginServiceImpl implements LoginService {
                 .subject(CAPTCHA)
                 .content("您的验证码为 " + code + " 有效期为" + CODE_EXPIRE_TIME + "分钟")
                 .build();
-        //发送邮件
-        emailService.sendSimpleMail(mailDTO);
 
-        //TODO 验证码存入消息队列
+        // 验证码存入消息队列
+        rabbitTemplate.convertAndSend(EMAIL_EXCHANGE, EMAIL_SIMPLE_KEY, mailDTO);
 
         // 验证码存入redis
         redisService.setObject(CODE_KEY + username, code, CODE_EXPIRE_TIME, TimeUnit.MINUTES);

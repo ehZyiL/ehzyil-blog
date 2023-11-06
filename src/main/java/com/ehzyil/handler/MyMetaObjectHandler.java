@@ -20,7 +20,7 @@ import static com.ehzyil.enums.ZoneEnum.SHANGHAI;
 public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
-        log.info("start insert fill ....");
+//        log.info("start insert fill ....");
         this.strictInsertFill(metaObject,
                 "createTime",
                 LocalDateTime.class,
@@ -30,7 +30,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        log.info("start update fill ....");
+//        log.info("start update fill ....");
         this.strictUpdateFill(metaObject,
                 "updateTime",
                 LocalDateTime.class,

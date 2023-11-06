@@ -93,12 +93,12 @@ public class GlobalExceptionHandler {
         return Result.fail(UNAUTHORIZED.getCode(), message);
     }
 
-//    /**
-//     * 处理系统异常
-//     */
-//    @ExceptionHandler(value = Exception.class)
-//    public Result<?> handleSystemException() {
-//        return Result.fail(SYSTEM_ERROR.getCode(), SYSTEM_ERROR.getMsg());
-//    }
+    /**
+     * 处理系统异常
+     */
+    @ExceptionHandler(value = Exception.class)
+    public Result<?> handleSystemException() {
+        return Result.fail(SYSTEM_ERROR.getCode(), SYSTEM_ERROR.getMsg());
+    }
 
 }

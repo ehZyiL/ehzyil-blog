@@ -66,6 +66,24 @@ spring:
         max-idle: 100
         # 连接池中的最小空闲连接
         min-idle: 50
+  # rabbitmq配置
+  rabbitmq:
+    host: 192.168.18.130
+    port: 5672
+    username: root
+    password: 666666
+    listener:
+      simple:
+        retry:
+          enabled: true
+          # 重试间隔时间
+          initial-interval: 3000
+          # 最大重试次数
+          max-attempts: 3
+    virtualhost: /
+    switch_flag: false
+    pool_size: 5
+
   # 邮箱配置
   mail:
     host: smtp.qq.com
@@ -159,3 +177,6 @@ log:
   path: logs
 env:
   name: dev
+# 博客链接 域名后面要加/
+blog:
+  url: localhost:5173/

@@ -2,32 +2,41 @@ package com.ehzyil.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ehzyil.domain.Comment;
-import com.ehzyil.domain.SiteConfig;
+import com.ehzyil.domain.*;
+import com.ehzyil.mapper.ArticleMapper;
 import com.ehzyil.mapper.CommentMapper;
+import com.ehzyil.mapper.TalkMapper;
+import com.ehzyil.mapper.UserMapper;
 import com.ehzyil.model.dto.CheckDTO;
 import com.ehzyil.model.dto.CommentDTO;
 import com.ehzyil.model.dto.ConditionDTO;
+import com.ehzyil.model.dto.MailDTO;
 import com.ehzyil.model.vo.admin.CommentBackVO;
-import com.ehzyil.model.vo.front.RecentCommentVO;
 import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.ICommentService;
 import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.PageUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import javax.annotation.Resource;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+import static com.ehzyil.constant.CommentTypeEnum.*;
+import static com.ehzyil.constant.CommonConstant.*;
+import static com.ehzyil.constant.MqConstant.*;
 import static com.ehzyil.constant.RedisConstant.COMMENT_LIKE_COUNT;
 import static com.ehzyil.constant.RedisConstant.SITE_SETTING;
+
 
 /**
  * <p>
@@ -42,6 +51,16 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private ArticleMapper articleMapper;
+    @Resource
+    private TalkMapper talkMapper;
+    @Value("${blog.url}")
+    private String websiteUrl;
 
     @Override
     public List<RecentCommentVO> listRecentCommentVO() {
@@ -108,6 +127,164 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
         //插入数据库
         getBaseMapper().insert(comment);
+
+        // 查询评论用户昵称
+        String fromNickname = userMapper.selectOne(new LambdaQueryWrapper<User>()
+                        .select(User::getNickname)
+                        .eq(User::getId, StpUtil.getLoginIdAsInt()))
+                .getNickname();
+        // 通知用户
+        if (siteConfig.getEmailNotice().equals(TRUE)) {
+            CompletableFuture.runAsync(() -> {
+                notice(comment, fromNickname);
+            });
+        }
+
+    }
+
+    private Article getArticle(Integer articleId) {
+        return articleMapper.selectOne(new LambdaQueryWrapper<Article>()
+                .select(Article::getArticleTitle, Article::getUserId)
+                .eq(Article::getId, articleId));
+    }
+
+    private Integer getTalkUserId(Integer talkId) {
+        return talkMapper.selectOne(new LambdaQueryWrapper<Talk>()
+                        .select(Talk::getUserId)
+                        .eq(Talk::getId, talkId))
+                .getUserId();
+    }
+
+    /**
+     * 评论通知
+     *
+     * @param comment      评论
+     * @param fromNickname 评论用户昵称
+     */
+    private void notice(Comment comment, String fromNickname) {
+
+        // 自己回复自己不用提醒
+        if (comment.getFromUid().equals(comment.getToUid())) {
+            return;
+        }
+
+        // 邮件标题
+        String title = "";
+        // 回复用户id
+        Integer toUid = -1;
+        // 父评论
+        if (Objects.isNull(comment.getParentId())) {
+            //类型 (1文章 2友链 3说说)
+            switch (comment.getCommentType()) {
+                case 1:
+                    Article article = getArticle(comment.getTypeId());
+                    title = article.getArticleTitle();
+                    toUid = article.getUserId();
+                    break;
+                case 2:
+                    title = TALK.getDesc();
+                    toUid = getTalkUserId(comment.getTypeId());
+                    break;
+                case 3:
+                    title = LINK.getDesc();
+                    toUid = getTalkUserId(comment.getTypeId());
+                    break;
+            }
+        } else {
+            // 子评论
+            toUid = comment.getToUid();
+
+            switch (comment.getCommentType()) {
+                case 1:
+                    Article article = getArticle(comment.getTypeId());
+                    title = article.getArticleTitle();
+                    break;
+                case 2:
+                    title = TALK.getDesc();
+                    break;
+                case 3:
+                    title = LINK.getDesc();
+                    break;
+            }
+
+        }
+        // 查询回复用户邮箱、昵称、id
+        User toUser = userMapper.selectOne(new LambdaQueryWrapper<User>()
+                .select(User::getEmail, User::getNickname)
+                .eq(User::getId, toUid));
+        // 邮箱不为空
+        if (StringUtils.hasText(toUser.getEmail())) {
+            sendEmail(comment, toUser, title, fromNickname);
+        }
+
+    }
+
+    /**
+     * 发送邮件
+     *
+     * @param comment      评论
+     * @param toUser       回复用户信息
+     * @param title        标题
+     * @param fromNickname 评论用户昵称
+     */
+    private void sendEmail(Comment comment, User toUser, String title, String fromNickname) {
+        MailDTO mailDTO = new MailDTO();
+        if (comment.getIsCheck().equals(TRUE)) {
+            Map<String, Object> contentMap = new HashMap<>(7);
+            // 评论链接
+            String typeId = Optional.ofNullable(comment.getTypeId())
+                    .map(Object::toString)
+                    .orElse("");
+            String url = websiteUrl + getCommentPath(comment.getCommentType()) + typeId;
+
+            // 父评论则提醒作者
+            if (Objects.isNull(comment.getParentId())) {
+                mailDTO.setToEmail(toUser.getEmail());
+                mailDTO.setSubject(COMMENT_REMIND);
+                mailDTO.setTemplate(AUTHOR_TEMPLATE);
+                String createTime = DateUtil.formatLocalDateTime(comment.getCreateTime());
+                contentMap.put("time", createTime);
+                contentMap.put("url", url);
+                contentMap.put("title", title);
+                contentMap.put("nickname", fromNickname);
+                contentMap.put("content", comment.getCommentContent());
+                mailDTO.setContentMap(contentMap);
+            } else {
+                // 子评论则回复的是用户提醒该用户
+                Comment parentComment = getBaseMapper().selectOne(new LambdaQueryWrapper<Comment>()
+                        .select(Comment::getCommentContent, Comment::getCreateTime)
+                        .eq(Comment::getId, comment.getReplyId()));
+                mailDTO.setToEmail(toUser.getEmail());
+                mailDTO.setSubject(COMMENT_REMIND);
+                mailDTO.setTemplate(USER_TEMPLATE);
+                contentMap.put("url", url);
+                contentMap.put("title", title);
+                String createTime = DateUtil.formatLocalDateTime(comment.getCreateTime());
+                contentMap.put("time", createTime);
+                // 被回复用户昵称
+                contentMap.put("toUser", toUser.getNickname());
+                // 评论用户昵称
+                contentMap.put("fromUser", fromNickname);
+                // 被回复的评论内容
+                contentMap.put("parentComment", parentComment.getCommentContent());
+                // 回复评论内容
+                contentMap.put("replyComment", comment.getCommentContent());
+                mailDTO.setContentMap(contentMap);
+            }
+            // 发送HTML邮件
+            rabbitTemplate.convertAndSend(EMAIL_EXCHANGE, EMAIL_HTML_KEY, mailDTO);
+        } else {
+            // 审核提醒
+            String adminEmail = userMapper.selectOne(new LambdaQueryWrapper<User>()
+                    .select(User::getEmail)
+                    .eq(User::getId, BLOGGER_ID)).getEmail();
+            mailDTO.setToEmail(adminEmail);
+            mailDTO.setSubject(CHECK_REMIND);
+            mailDTO.setContent("您收到一条新的回复，请前往后台管理页面审核.");
+            // 发送普通邮件
+            rabbitTemplate.convertAndSend(EMAIL_EXCHANGE, EMAIL_SIMPLE_KEY, mailDTO);
+        }
+
     }
 
     @Override
