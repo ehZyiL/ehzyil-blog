@@ -119,10 +119,10 @@ thread:
 upload:
   strategy: qiniu
   local:
-    # nginx映射本地文件路径
-    url: https://localhost/
-    # 本地文件存储路径
-    path: /usr/local/upload/
+    abs-tmp-path: classpath:/static/img/    #存储的绝对路径
+    web-img-path: /image/     #图片在 Web 应用中的相对路径
+    tmp-upload-path: classpath:/static/img/    #上传文件的临时存储目录
+    cdn-host:
   # oss存储
   minio:
     url: http://Bucket域名/

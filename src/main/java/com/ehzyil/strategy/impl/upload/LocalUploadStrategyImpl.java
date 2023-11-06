@@ -47,17 +47,9 @@ public class LocalUploadStrategyImpl extends AbstractUploadStrategyImpl {
     @Autowired
     @Lazy
     private IBlogFileService blogFileService;
-    //TODO 本地上传待优化
+
     @Override
     public void initClient() {
-//win 本地
-//        try {
-//            localPath = ResourceUtils.getURL("classpath:").getPath() + "static/imgs/";
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//            throw new ServiceException("文件不存在");
-//        }
-
         // 判断目录是否存在
         File directory = new File(localPath);
         if (!directory.exists()) {
