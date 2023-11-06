@@ -12,6 +12,7 @@ import com.ehzyil.model.vo.front.Result;
 import com.ehzyil.service.IFriendService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,7 @@ public class FriendController {
      * @return {@link Result < FriendVO >} 友链列表
      */
 //    @VisitLogger(value = "友链")
+    @Cacheable(key = "'listFriendVO'", cacheManager = "caffeineCacheManager", cacheNames = "listFriendVO")
     @ApiOperation(value = "查看友链列表")
     @GetMapping("/friend/list")
     public Result<List<FriendVO>> listFriendVO() {

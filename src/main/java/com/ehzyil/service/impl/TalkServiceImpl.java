@@ -27,6 +27,7 @@ import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -57,6 +58,7 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
     @Autowired
     private UploadStrategyContext uploadStrategyContext;
 
+    @Cacheable(key = "'listTalkHome'", cacheManager = "caffeineCacheManager", cacheNames = "listTalkHome")
     @Override
     public List<String> listTalkHome() {
         //查询最新
@@ -78,31 +80,10 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
 
     }
 
+
+    @Cacheable(key = "'listTalkVO_' + #current", cacheManager = "caffeineCacheManager", cacheNames = "listTalkVO")
     @Override
     public PageResult<TalkVO> listTalkVO(Long current, Long size) {
-//        //查询说说
-//        LambdaQueryWrapper<Talk> talkLambdaQueryWrapper = new LambdaQueryWrapper<>();
-//        talkLambdaQueryWrapper
-//                .eq(Talk::getStatus, "1")
-//                .orderByDesc(Talk::getIsTop)
-//                .orderByDesc(Talk::getId);
-//
-//
-//        //分页查询说说
-//        Page<Talk> page = new Page<>();
-//        page.setCurrent(current);
-//        page.setSize(size);
-//        page(page, talkLambdaQueryWrapper);
-//
-//        List<Talk> talkList = page.getRecords();
-//
-//        //获取说说id列表
-//        List<Integer> userIdList = talkList.stream().map(Talk::getUserId).collect(Collectors.toList());
-//        // 查询用户头像 昵称
-//        LambdaQueryWrapper<User> userLambdaQueryWrapper=new LambdaQueryWrapper<User>();
-//        userLambdaQueryWrapper.select(User::getId,User::getAvatar,User::getNickname).in(User::getId,userIdList);
-//        List<User> userList = userService.getBaseMapper().selectList(userLambdaQueryWrapper);
-
         // 查询说说总量
         Long count = getBaseMapper().selectCount((new LambdaQueryWrapper<Talk>()
                 .eq(Talk::getStatus, "1")));
@@ -176,7 +157,7 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
         return talkVO;
     }
 
-
+    @Cacheable(key = "'listTalkBackVO'", cacheManager = "caffeineCacheManager", cacheNames = "listTalkBackVO")
     @Override
     public PageResult<TalkBackVO> listTalkBackVO(ConditionDTO condition) {
         // 查询说说数量
@@ -227,6 +208,5 @@ public class TalkServiceImpl extends ServiceImpl<TalkMapper, Talk> implements IT
     @Override
     public String uploadTalkCover(MultipartFile file) {
      return uploadStrategyContext.executeUploadStrategy(file, FilePathEnum.TALK.getPath());
-
     }
 }

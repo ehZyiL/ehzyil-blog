@@ -8,6 +8,8 @@ import com.ehzyil.service.ISiteConfigService;
 import com.ehzyil.service.RedisService;
 import com.ehzyil.strategy.context.UploadStrategyContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,6 +37,7 @@ public class SiteConfigServiceImpl extends ServiceImpl<SiteConfigMapper, SiteCon
     @Autowired
     private UploadStrategyContext uploadStrategyContext;
 
+//    @Cacheable(key = "SiteConfig", cacheManager = "caffeineCacheManager", cacheNames = "SiteConfig")
     @Override
     public SiteConfig getSiteConfig() {
         SiteConfig siteConfig = redisService.getObject(SITE_SETTING);
@@ -46,6 +49,7 @@ public class SiteConfigServiceImpl extends ServiceImpl<SiteConfigMapper, SiteCon
         return siteConfig;
     }
 
+    @CacheEvict(key = "SiteConfig", cacheManager = "caffeineCacheManager", cacheNames = "SiteConfig")
     @Override
     public void updateSiteConfig(SiteConfig siteConfig) {
         baseMapper.updateById(siteConfig);

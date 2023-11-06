@@ -15,6 +15,7 @@ import com.ehzyil.service.ICategoryService;
 import com.ehzyil.utils.BeanCopyUtils;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -38,6 +39,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Autowired
     private ArticleMapper articleMapper;
 
+    @Cacheable(key = "'listCategory'", cacheManager = "caffeineCacheManager", cacheNames = "listCategory")
     @Override
     public List<CategoryVO> listCategoryVO() {
         return categoryMapper.selectCategoryVO();
@@ -59,6 +61,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         return ArticleConditionList.builder().articleConditionVOList(articleConditionVOS).name(categoryName).build();
     }
 
+    @Cacheable(key = "'listCategoryBack'", cacheManager = "caffeineCacheManager", cacheNames = "listCategoryBack")
     @Override
     public PageResult<CategoryBackVO> listCategoryBackVO(ConditionDTO condition) {
         // 查询分类数量
@@ -114,6 +117,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         baseMapper.updateById(newCategory);
     }
 
+    @Cacheable(key = "'listCategoryOption'", cacheManager = "caffeineCacheManager", cacheNames = "listCategoryOption")
     @Override
     public List<CategoryOptionVO> listCategoryOption() {
         // 查询分类

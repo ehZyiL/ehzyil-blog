@@ -4,12 +4,14 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @author ehyzil
  * @Description
  * @create 2023-09-2023/9/25-19:48
  */
+@EnableCaching
 @SpringBootApplication
 @ServletComponentScan
 //@MapperScan("com.ehzyil.mapper")

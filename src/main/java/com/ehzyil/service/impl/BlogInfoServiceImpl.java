@@ -20,6 +20,7 @@ import com.ehzyil.service.RedisService;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.UserAgentUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -84,6 +85,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         }
     }
 
+    @Cacheable(key = "'blogInfo'", cacheManager = "caffeineCacheManager", cacheNames = "blogInfo")
     @Override
     public BlogInfoVO getBlogInfo() {
         //文章数量
@@ -110,6 +112,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
                 .build();
     }
 
+    @Cacheable(key = "'blogBackInfo'", cacheManager = "caffeineCacheManager", cacheNames = "blogInfo")
     @Override
     public BlogBackInfoVO getBlogBackInfo() {
         // 访问量

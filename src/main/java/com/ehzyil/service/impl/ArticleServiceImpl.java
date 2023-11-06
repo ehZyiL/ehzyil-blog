@@ -26,6 +26,7 @@ import com.ehzyil.utils.BeanCopyUtils;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -73,6 +74,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Autowired
     private UploadStrategyContext uploadStrategyContext;
 
+    @Cacheable(key = "'listArticleHomeVO' ", cacheManager = "caffeineCacheManager", cacheNames = "listArticleHomeVO")
     @Override
     public PageResult<ArticleHomeVO> listArticleHomeVO() {
 
@@ -91,6 +93,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return new PageResult<>(articleHomeVOS, count);
     }
 
+    @Cacheable(key = "'listArticleRecommendVO'", cacheManager = "caffeineCacheManager", cacheNames = "listArticleRecommendVO")
     @Override
     public List<ArticleRecommendVO> listArticleRecommendVO() {
         return articleMapper.selectArticleRecommend();
@@ -124,6 +127,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return articleVO;
     }
 
+    @Cacheable(key = "'listArchiveVO_' + #current", cacheManager = "caffeineCacheManager", cacheNames = "listArchiveVO")
     @Override
     public PageResult<ArchiveVO> listArchiveVO(Long current, Long size) {
         LambdaQueryWrapper<Article> articleLambdaQueryWrapper = new LambdaQueryWrapper<>();

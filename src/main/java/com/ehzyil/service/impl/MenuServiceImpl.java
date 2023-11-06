@@ -15,6 +15,7 @@ import com.ehzyil.model.vo.admin.MenuVO;
 import com.ehzyil.service.IMenuService;
 import com.ehzyil.utils.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
     @Autowired
     private RoleMenuMapper roleMenuMapper;
 
+    @Cacheable(key = "'listMenuVO'", cacheManager = "caffeineCacheManager", cacheNames = "listMenuVO")
     @Override
     public List<MenuVO> listMenuVO(ConditionDTO condition) {
         //查询菜单列表
