@@ -26,7 +26,7 @@ import Echarts from "@/components/Echarts/index.vue";
 let categoryOption = reactive({
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)'
+    formatter: '{logback-spring.xml} <br/>{b} : {c} ({d}%)'
   },
   title: {
     text: "文章分类统计图🎉",

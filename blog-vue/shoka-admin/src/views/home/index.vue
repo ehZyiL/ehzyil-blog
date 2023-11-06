@@ -174,7 +174,7 @@ let userView = reactive({
 let category = reactive({
   tooltip: {
     trigger: 'item',
-    formatter: '{a} <br/>{b} : {c} ({d}%)'
+    formatter: '{logback-spring.xml} <br/>{b} : {c} ({d}%)'
   },
   legend: {
     top: "bottom",

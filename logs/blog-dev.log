@@ -1,0 +1,763 @@
+[2023-11-06 09:00:54]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 3304 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-06 09:00:54]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-06 09:00:54]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-06 09:00:55]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-06 09:00:55]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-06 09:00:55]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces."}
+[2023-11-06 09:00:56]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-06 09:00:56]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-06 09:00:56]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-06 09:00:56]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-06 09:00:56]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-06 09:00:56]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 1355 ms"}
+[2023-11-06 09:00:56]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-06 09:00:57]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-06 09:00:58]|||{"logger":"o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration", "thread":"main", "msg":"Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)"}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-06 09:00:59]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-06 09:00:59]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@28269c65"}
+[2023-11-06 09:01:00]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-06 09:01:00]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-06 09:01:00]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-06 09:01:00]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-06 09:01:00]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 5.659 seconds (JVM running for 6.729)"}
+[2023-11-06 09:01:19]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-06 09:01:19]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-1", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-06 09:01:19]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-06 09:01:19]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Completed initialization in 2 ms"}
+[2023-11-06 09:01:21]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 61 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000061  100%   请求基本信息
+"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"/-----------------------------------------------------------\"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"+-----------------------------------------------------------+"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"\-----------------------------------------------------------/"}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-06 09:01:21]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-1", "msg":"- Loaded 100 files in  159 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-06 09:01:22]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-06 09:01:22]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Initializing Analyzer data structures"}
+[2023-11-06 09:01:23]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Built in 1186 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-06 09:01:23]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 2771 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000097  04%   请求参数构建
+000000055  02%   cors
+000002617  94%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:01:26]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 1 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  100%   请求基本信息
+"}
+[2023-11-06 09:01:26]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 1 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  100%   请求基本信息
+"}
+[2023-11-06 09:01:26]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 13 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000002  18%   请求参数构建
+000000000  01%   cors
+000000010  75%   业务执行
+000000000  06%   输出请求日志
+"}
+[2023-11-06 09:01:26]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 210 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000002  01%   请求参数构建
+000000000  00%   cors
+000000207  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/home/talk -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/article/recommend -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/recent/comment -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/article/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/recent/comment - cost:
+StopWatch '请求耗时': running time = 25 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000023  93%   业务执行
+000000001  04%   输出请求日志
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/article/recommend - cost:
+StopWatch '请求耗时': running time = 28 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  03%   请求参数构建
+000000000  00%   cors
+000000027  96%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/article/list - cost:
+StopWatch '请求耗时': running time = 58 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000056  97%   业务执行
+000000001  02%   输出请求日志
+"}
+[2023-11-06 09:01:27]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-1", "msg":"start insert fill ...."}
+[2023-11-06 09:01:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/home/talk - cost:
+StopWatch '请求耗时': running time = 150 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000149  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:01:37]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:37]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-7", "msg":"start update fill ...."}
+[2023-11-06 09:01:37]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 198 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  01%   请求参数构建
+000000000  00%   cors
+000000196  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:01:37]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/user/getUserInfo -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:01:37]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/user/getUserInfo - cost:
+StopWatch '请求耗时': running time = 87 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000086  99%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:09]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 1 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  100%   请求基本信息
+"}
+[2023-11-06 09:02:09]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 1 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  100%   请求基本信息
+"}
+[2023-11-06 09:02:09]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 8 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000002  33%   请求参数构建
+000000000  01%   cors
+000000005  65%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:02:09]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 30 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000002  09%   请求参数构建
+000000000  00%   cors
+000000027  91%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/home/talk -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/article/recommend -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/recent/comment -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/article/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/home/talk - cost:
+StopWatch '请求耗时': running time = 13 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  07%   请求参数构建
+000000000  00%   cors
+000000012  92%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/article/recommend - cost:
+StopWatch '请求耗时': running time = 9 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000003  39%   请求参数构建
+000000000  01%   cors
+000000005  57%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/recent/comment - cost:
+StopWatch '请求耗时': running time = 12 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  05%   请求参数构建
+000000000  00%   cors
+000000011  94%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:10]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/article/list - cost:
+StopWatch '请求耗时': running time = 24 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000024  97%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:10]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-1", "msg":"start insert fill ...."}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 9 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  09%   请求参数构建
+000000000  00%   cors
+000000008  88%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 19 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000018  98%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/home/talk -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/recent/comment -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/article/recommend -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/article/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/recent/comment - cost:
+StopWatch '请求耗时': running time = 5 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  07%   请求参数构建
+000000000  00%   cors
+000000005  88%   业务执行
+000000000  04%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/article/recommend - cost:
+StopWatch '请求耗时': running time = 5 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  26%   请求参数构建
+000000000  00%   cors
+000000003  70%   业务执行
+000000000  04%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/home/talk - cost:
+StopWatch '请求耗时': running time = 7 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  06%   请求参数构建
+000000000  00%   cors
+000000006  87%   业务执行
+000000000  07%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/article/list - cost:
+StopWatch '请求耗时': running time = 34 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000034  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:02:11]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-2", "msg":"start insert fill ...."}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 11 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  10%   请求参数构建
+000000000  00%   cors
+000000009  82%   业务执行
+000000000  08%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 24 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  05%   请求参数构建
+000000000  00%   cors
+000000022  92%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/home/talk -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/article/recommend -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/recent/comment -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/article/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/home/talk - cost:
+StopWatch '请求耗时': running time = 10 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  05%   请求参数构建
+000000000  00%   cors
+000000009  93%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/article/recommend - cost:
+StopWatch '请求耗时': running time = 10 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  05%   请求参数构建
+000000000  09%   cors
+000000008  85%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/recent/comment - cost:
+StopWatch '请求耗时': running time = 8 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  11%   请求参数构建
+000000000  00%   cors
+000000007  85%   业务执行
+000000000  04%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/article/list - cost:
+StopWatch '请求耗时': running time = 18 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  05%   请求参数构建
+000000000  00%   cors
+000000016  94%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:03:28]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-1", "msg":"start insert fill ...."}
+[2023-11-06 09:03:31]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/article/61 -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:31]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/comment/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:31]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/comment/list - cost:
+StopWatch '请求耗时': running time = 17 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000016  95%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:03:31]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/article/61 - cost:
+StopWatch '请求耗时': running time = 33 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000032  98%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:03:31]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-3", "msg":"start insert fill ...."}
+[2023-11-06 09:03:35]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/archives/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:35]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/archives/list - cost:
+StopWatch '请求耗时': running time = 128 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  01%   请求参数构建
+000000000  00%   cors
+000000127  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:03:35]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-2", "msg":"start insert fill ...."}
+[2023-11-06 09:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/talk/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/talk/list - cost:
+StopWatch '请求耗时': running time = 35 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000035  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:03:39]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/album/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:39]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/album/list - cost:
+StopWatch '请求耗时': running time = 97 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000095  99%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:03:39]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"schedule-pool-4", "msg":"start insert fill ...."}
+[2023-11-06 09:03:40]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/friend/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:40]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/comment/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:40]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/comment/list - cost:
+StopWatch '请求耗时': running time = 10 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  13%   请求参数构建
+000000000  00%   cors
+000000009  85%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:03:40]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/friend/list - cost:
+StopWatch '请求耗时': running time = 19 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  07%   请求参数构建
+000000000  00%   cors
+000000017  92%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-06 09:03:41]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/message/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:41]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/message/list - cost:
+StopWatch '请求耗时': running time = 8 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  04%   请求参数构建
+000000000  00%   cors
+000000008  94%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:03:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:46]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-5", "msg":"start insert fill ...."}
+[2023-11-06 09:03:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 46 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000045  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-06 09:03:47]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:47]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-6", "msg":"start insert fill ...."}
+[2023-11-06 09:03:47]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 6 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  06%   请求参数构建
+000000000  00%   cors
+000000005  91%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:03:48]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:48]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-10", "msg":"start insert fill ...."}
+[2023-11-06 09:03:48]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 6 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  07%   请求参数构建
+000000000  00%   cors
+000000005  90%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:03:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:49]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-1", "msg":"start insert fill ...."}
+[2023-11-06 09:03:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 7 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  09%   请求参数构建
+000000000  00%   cors
+000000006  88%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-06 09:03:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:50]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-7", "msg":"start insert fill ...."}
+[2023-11-06 09:03:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 6 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  06%   请求参数构建
+000000000  00%   cors
+000000005  90%   业务执行
+000000000  03%   输出请求日志
+"}
+[2023-11-06 09:03:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/message/add -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-06 09:03:52]|||{"logger":"c.ehzyil.handler.MyMetaObjectHandler", "thread":"http-nio-8080-exec-8", "msg":"start insert fill ...."}
+[2023-11-06 09:03:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/message/add - cost:
+StopWatch '请求耗时': running time = 6 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  15%   请求参数构建
+000000000  00%   cors
+000000005  84%   业务执行
+000000000  01%   输出请求日志
+"}

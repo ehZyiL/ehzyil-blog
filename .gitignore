@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+## ignore logs
+logs/
+pid.log
+*.jar
+*.jar.bak
+*.jar.tmp
