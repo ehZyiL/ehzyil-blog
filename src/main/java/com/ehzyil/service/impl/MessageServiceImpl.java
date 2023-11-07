@@ -1,5 +1,6 @@
 package com.ehzyil.service.impl;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ehzyil.domain.Message;
 import com.ehzyil.domain.SiteConfig;
@@ -14,6 +15,7 @@ import com.ehzyil.service.IMessageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.service.ISiteConfigService;
 import com.ehzyil.service.RedisService;
+import com.ehzyil.service.UserWhiteListService;
 import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.PageUtils;
@@ -28,6 +30,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.ehzyil.constant.CommonConstant.IS_NOT_CHECK;
 import static com.ehzyil.constant.RedisConstant.SITE_SETTING;
 
 /**
@@ -50,6 +53,8 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
     public List<MessageVO> listTalkHome() {
        return getBaseMapper().selectMessageVoList();
     }
+    @Autowired
+    private  UserWhiteListService userWhiteListService;
 
     @Override
     public void addMessage(MessageDTO message) {
@@ -58,8 +63,14 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         BeanUtils.copyProperties(message,newMessage);
         //获取站点信息
         SiteConfig siteConfig=redisService.getObject(SITE_SETTING);
+
         //设置是否检查
-        newMessage.setIsCheck(Optional.ofNullable(siteConfig.getMessageCheck()).orElse(0));
+        if (userWhiteListService.needToReview( StpUtil.getLoginIdAsInt())) {
+            newMessage.setIsCheck(Optional.ofNullable(siteConfig.getMessageCheck()).orElse(0));
+        } else {
+            newMessage.setIsCheck(IS_NOT_CHECK);
+        }
+
         //获取IP
         String ipAddress = IpUtils.getIpAddress(request);
         String ipSource = IpUtils.getIpSource(ipAddress);
