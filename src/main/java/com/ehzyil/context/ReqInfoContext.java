@@ -61,7 +61,7 @@ public class ReqInfoContext {
         /**
          * 用户id
          */
-        private Long userId;
+        private Integer userId;
         /**
          * 用户信息
          */

@@ -10,6 +10,9 @@ import com.ehzyil.model.dto.RegisterDTO;
  */
 public interface LoginService {
 
+    String SESSION_KEY = "f-session";
+    String USER_DEVICE_KEY = "f-device";
+
 
     /**
      * 发送验证码
@@ -26,4 +29,5 @@ public interface LoginService {
     void register(RegisterDTO register);
 
     String login(LoginDTO login);
+
 }

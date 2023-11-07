@@ -129,4 +129,6 @@ public class LoginServiceImpl implements LoginService {
         StpUtil.login(user.getId());
         return StpUtil.getTokenValue();
     }
+
+
 }

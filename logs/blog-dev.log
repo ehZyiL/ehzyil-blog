@@ -2667,3 +2667,1083 @@ ms         %     Task name
 000000021  96%   业务执行
 000000000  01%   输出请求日志
 "}
+[2023-11-07 10:43:20]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:43:20]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:43:20]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:43:20]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:43:21]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:43:21]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:43:21]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:43:21]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 10:43:21]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 10:43:21]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 10:43:21]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:43:21]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 10:43:21]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 10:43:21]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 10:43:30]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 10:43:30]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 22660 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 10:43:30]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 10:43:31]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 10:43:31]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 10:43:31]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 10:43:32]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 10:43:32]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:43:32]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 10:43:32]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 10:43:32]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 10:43:32]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 1662 ms"}
+[2023-11-07 10:43:32]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 10:43:33]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 10:43:35]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 10:43:35]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4eec5fa6"}
+[2023-11-07 10:43:36]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:43:36]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 10:43:36]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 10:43:36]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#5a35ae82:0/SimpleConnection@5f8a29ca [delegate=amqp://root@192.168.18.130:5672/, localPort= 51893]"}
+[2023-11-07 10:43:36]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 10:43:36]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 10:43:36]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 6.153 seconds (JVM running for 7.32)"}
+[2023-11-07 10:47:25]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:47:25]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:47:25]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:47:26]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:47:26]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:47:26]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:47:26]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:47:26]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 10:47:26]|||{"logger":"o.s.c.a.CommonAnnotationBeanPostProcessor", "thread":"SpringApplicationShutdownHook", "msg":"Destroy method on bean with name 'shutdownManager' threw an exception: java.lang.ExceptionInInitializerError"}
+[2023-11-07 10:47:26]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 10:47:26]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 10:47:26]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:47:26]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 10:47:26]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 10:47:26]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 10:47:29]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 10:47:29]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 1360 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 10:47:29]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 10:47:30]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 10:47:30]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 10:47:30]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 10:47:31]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 10:47:31]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:47:31]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 10:47:31]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 10:47:31]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 10:47:31]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 1386 ms"}
+[2023-11-07 10:47:31]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 10:47:32]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 10:47:34]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 10:47:34]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@4b20aa21"}
+[2023-11-07 10:47:35]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:47:35]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 10:47:35]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 10:47:35]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#79631db0:0/SimpleConnection@7d381eae [delegate=amqp://root@192.168.18.130:5672/, localPort= 52110]"}
+[2023-11-07 10:47:35]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 10:47:35]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 10:47:35]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 5.757 seconds (JVM running for 6.872)"}
+[2023-11-07 10:47:44]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 10:47:44]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-3", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 10:47:44]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-1", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-07 10:47:44]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-07 10:47:44]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Completed initialization in 3 ms"}
+[2023-11-07 10:47:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 45 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000045  100%   请求基本信息
+"}
+[2023-11-07 10:47:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/logout -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 40 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000040  100%   请求基本信息
+"}
+[2023-11-07 10:47:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 40 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000040  100%   请求基本信息
+"}
+[2023-11-07 10:47:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 40 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000040  100%   请求基本信息
+"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":""}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"/-----------------------------------------------------------\"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"+-----------------------------------------------------------+"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"\-----------------------------------------------------------/"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":""}
+[2023-11-07 10:47:47]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/list - cost:
+StopWatch '请求耗时': running time = 160 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000055  35%   请求参数构建
+000000005  03%   cors
+000000099  62%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:47:47]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 177 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000055  31%   请求参数构建
+000000005  03%   cors
+000000116  65%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:47:47]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/logout - cost:
+StopWatch '请求耗时': running time = 179 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000055  31%   请求参数构建
+000000005  03%   cors
+000000118  66%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:47:47]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-2", "msg":"- Loaded 100 files in  134 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-07 10:47:48]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-07 10:47:48]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Initializing Analyzer data structures"}
+[2023-11-07 10:47:48]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Built in 855 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-07 10:47:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 2096 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000055  03%   请求参数构建
+000000005  00%   cors
+000002035  97%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:47:55]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 10:48:06]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-5", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 10150 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  00%   请求参数构建
+000000000  00%   cors
+000010149  100%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:48:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 37 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000037  100%   请求基本信息
+"}
+[2023-11-07 10:48:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/message/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 24 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000024  100%   请求基本信息
+"}
+[2023-11-07 10:48:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 45 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000045  100%   请求基本信息
+"}
+[2023-11-07 10:48:51]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 903 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000190  21%   请求参数构建
+000000019  02%   cors
+000000674  75%   业务执行
+000000018  02%   输出请求日志
+"}
+[2023-11-07 10:48:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-6", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 1700 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000185  11%   请求参数构建
+000000011  01%   cors
+000001495  88%   业务执行
+000000008  00%   输出请求日志
+"}
+[2023-11-07 10:48:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/message/list - cost:
+StopWatch '请求耗时': running time = 1717 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000168  10%   请求参数构建
+000000012  01%   cors
+000001533  89%   业务执行
+000000002  00%   输出请求日志
+"}
+[2023-11-07 10:49:04]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 7 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000007  100%   请求基本信息
+"}
+[2023-11-07 10:50:00]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:50:00]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:50:00]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:50:01]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:50:01]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:50:06]|||{"logger":"o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver", "thread":"http-nio-8080-exec-9", "msg":"Failure in @ExceptionHandler com.ehzyil.handler.GlobalExceptionHandler#handleServiceException(ServiceException)"}
+org.apache.catalina.connector.ClientAbortException: java.nio.channels.ClosedChannelException
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:353)
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:784)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:299)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:273)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:118)
+	at java.base/java.io.FilterOutputStream.flush(FilterOutputStream.java:153)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1187)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1009)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:428)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:142)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1331)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1142)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.ehzyil.filter.ReqRecordFilter.doFilter(ReqRecordFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at cn.dev33.satoken.filter.SaServletFilter.doFilter(SaServletFilter.java:179)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.nio.channels.ClosedChannelException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1390)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:768)
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:593)
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:537)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:547)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:110)
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:194)
+	at org.apache.coyote.Response.doWrite(Response.java:615)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:340)
+	... 65 common frames omitted
+[2023-11-07 10:50:06]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:50:06]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:50:06]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 10:50:06]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 10:50:06]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 10:50:06]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:50:06]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 10:50:06]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 10:50:06]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 10:50:12]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 24000 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 10:50:12]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 10:50:12]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 10:50:13]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 10:50:13]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 10:50:13]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 10:50:13]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 10:50:13]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:50:13]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 10:50:13]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 10:50:13]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 10:50:13]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 1325 ms"}
+[2023-11-07 10:50:14]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 10:50:14]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 10:50:18]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 10:50:18]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@22105c76"}
+[2023-11-07 10:50:19]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:50:19]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 10:50:19]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 10:50:19]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#a93c798:0/SimpleConnection@2f09907 [delegate=amqp://root@192.168.18.130:5672/, localPort= 52343]"}
+[2023-11-07 10:50:19]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 10:50:19]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 10:50:19]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 7.925 seconds (JVM running for 9.162)"}
+[2023-11-07 10:50:25]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 10:50:25]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-2", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-07 10:50:25]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-2", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-07 10:50:25]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-2", "msg":"Completed initialization in 6 ms"}
+[2023-11-07 10:50:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/message/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 30 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000030  100%   请求基本信息
+"}
+[2023-11-07 10:50:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 33 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000033  100%   请求基本信息
+"}
+[2023-11-07 10:50:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 30 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000030  100%   请求基本信息
+"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":""}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"/-----------------------------------------------------------\"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"+-----------------------------------------------------------+"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":"\-----------------------------------------------------------/"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-2", "msg":""}
+[2023-11-07 10:50:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/message/list - cost:
+StopWatch '请求耗时': running time = 150 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000043  29%   请求参数构建
+000000004  03%   cors
+000000102  68%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:50:27]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 219 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000043  20%   请求参数构建
+000000004  02%   cors
+000000170  78%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:50:27]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-2", "msg":"- Loaded 100 files in  132 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-07 10:50:28]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-07 10:50:28]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Initializing Analyzer data structures"}
+[2023-11-07 10:50:29]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-2", "msg":"Built in 972 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-07 10:50:29]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 2318 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000043  02%   请求参数构建
+000000004  00%   cors
+000002269  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:50:36]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 11 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000011  100%   请求基本信息
+"}
+[2023-11-07 10:52:51]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:52:51]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:52:51]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:52:52]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:52:52]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:53:00]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:53:00]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:53:00]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 10:53:00]|||{"logger":"o.s.c.a.CommonAnnotationBeanPostProcessor", "thread":"SpringApplicationShutdownHook", "msg":"Destroy method on bean with name 'shutdownManager' threw an exception: java.lang.ExceptionInInitializerError"}
+[2023-11-07 10:53:00]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 10:53:00]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 10:53:00]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:53:00]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 10:53:00]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 10:53:00]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 10:53:06]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 23580 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 10:53:06]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 10:53:06]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 10:53:07]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 10:53:07]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 10:53:07]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 10:53:08]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 10:53:08]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:53:08]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 10:53:08]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 10:53:08]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 10:53:08]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 2112 ms"}
+[2023-11-07 10:53:08]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 10:53:09]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 10:53:11]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 10:53:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@25e8a111"}
+[2023-11-07 10:53:12]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:53:12]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 10:53:12]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 10:53:12]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#565efd7d:0/SimpleConnection@5466a819 [delegate=amqp://root@192.168.18.130:5672/, localPort= 52536]"}
+[2023-11-07 10:53:12]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 10:53:12]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 10:53:12]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 7.549 seconds (JVM running for 9.01)"}
+[2023-11-07 10:53:59]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 10:53:59]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-1", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-07 10:53:59]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-07 10:53:59]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Completed initialization in 1 ms"}
+[2023-11-07 10:54:00]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 29 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000029  100%   请求基本信息
+"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"/-----------------------------------------------------------\"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"+-----------------------------------------------------------+"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"\-----------------------------------------------------------/"}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 10:54:00]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-1", "msg":"- Loaded 100 files in   88 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-07 10:54:01]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-07 10:54:01]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Initializing Analyzer data structures"}
+[2023-11-07 10:54:02]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Built in 815 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-07 10:54:02]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 2007 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000041  02%   请求参数构建
+000000004  00%   cors
+000001960  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:54:09]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 12 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000012  100%   请求基本信息
+"}
+[2023-11-07 10:56:31]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 10:56:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 149334 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000040  00%   请求参数构建
+000000001  00%   cors
+000149292  100%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:56:42]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 10972 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  00%   请求参数构建
+000000000  00%   cors
+000010972  100%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:56:55]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 11 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000011  100%   请求基本信息
+"}
+[2023-11-07 10:57:58]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:57:58]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:57:58]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 10:57:59]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:57:59]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 10:58:04]|||{"logger":"o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver", "thread":"http-nio-8080-exec-4", "msg":"Failure in @ExceptionHandler com.ehzyil.handler.GlobalExceptionHandler#handleServiceException(ServiceException)"}
+org.apache.catalina.connector.ClientAbortException: java.nio.channels.ClosedChannelException
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:353)
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:784)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:299)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:273)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:118)
+	at java.base/java.io.FilterOutputStream.flush(FilterOutputStream.java:153)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1187)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1009)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:428)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:142)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1331)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1142)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:696)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at com.ehzyil.filter.ReqRecordFilter.doFilter(ReqRecordFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at cn.dev33.satoken.filter.SaServletFilter.doFilter(SaServletFilter.java:179)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.nio.channels.ClosedChannelException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1390)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:768)
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:593)
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:537)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:547)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:110)
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:194)
+	at org.apache.coyote.Response.doWrite(Response.java:615)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:340)
+	... 65 common frames omitted
+[2023-11-07 10:58:04]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:58:04]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 10:58:04]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 10:58:04]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 10:58:04]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 10:58:04]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 10:58:04]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 10:58:04]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 10:58:04]|||{"logger":"com.ehzyil.utils.ThreadUtils", "thread":"schedule-pool-1", "msg":"Error creating bean with name 'exceptionLogServiceImpl': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)"}
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'exceptionLogServiceImpl': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:220)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:233)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1284)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1245)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:494)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:349)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:342)
+	at com.ehzyil.utils.SpringUtils.getBean(SpringUtils.java:35)
+	at com.ehzyil.manager.factory.AsyncFactory$3.run(AsyncFactory.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[2023-11-07 10:58:04]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 10:58:11]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 10:58:11]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 23148 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 10:58:11]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 10:58:12]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 10:58:12]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 10:58:12]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 10:58:12]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 10:58:12]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:58:12]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 10:58:12]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 10:58:12]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 10:58:12]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 1407 ms"}
+[2023-11-07 10:58:13]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 10:58:13]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 10:58:15]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 10:58:15]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@25b83dce"}
+[2023-11-07 10:58:16]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 10:58:16]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 10:58:16]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 10:58:16]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#59aa1d1c:0/SimpleConnection@31885b4b [delegate=amqp://root@192.168.18.130:5672/, localPort= 52929]"}
+[2023-11-07 10:58:16]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 10:58:16]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 10:58:16]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 5.854 seconds (JVM running for 7.028)"}
+[2023-11-07 10:58:23]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 10:58:24]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-1", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-07 10:58:24]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-07 10:58:25]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Completed initialization in 317 ms"}
+[2023-11-07 10:58:25]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 26 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000026  100%   请求基本信息
+"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"/-----------------------------------------------------------\"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"+-----------------------------------------------------------+"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"\-----------------------------------------------------------/"}
+[2023-11-07 10:58:25]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 10:58:44]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-1", "msg":"- Loaded 100 files in 18119 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-07 10:58:51]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-07 10:58:51]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Initializing Analyzer data structures"}
+[2023-11-07 10:58:57]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Built in 5958 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-07 10:59:12]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 47203 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000035  00%   请求参数构建
+000000004  00%   cors
+000047162  100%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 10:59:19]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 11 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000011  100%   请求基本信息
+"}
+[2023-11-07 11:00:08]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 9 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000009  100%   请求基本信息
+"}
+[2023-11-07 11:00:28]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 68835 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000036  00%   请求参数构建
+000000002  00%   cors
+000068796  100%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 11:01:35]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 86928 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000042  00%   请求参数构建
+000000002  00%   cors
+000086879  100%   业务执行
+000000004  00%   输出请求日志
+"}
+[2023-11-07 11:01:48]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:01:48]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 17 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  06%   请求参数构建
+000000000  00%   cors
+000000016  93%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-07 11:01:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/logout -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:01:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-7", "msg":"/logout - cost:
+StopWatch '请求耗时': running time = 4 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  17%   请求参数构建
+000000000  00%   cors
+000000003  79%   业务执行
+000000000  04%   输出请求日志
+"}
+[2023-11-07 11:01:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:01:52]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-8", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 50 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000049  97%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/report -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/ -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-9", "msg":"/report - cost:
+StopWatch '请求耗时': running time = 26 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  05%   请求参数构建
+000000000  00%   cors
+000000022  85%   业务执行
+000000002  11%   输出请求日志
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/list -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/message/list - cost:
+StopWatch '请求耗时': running time = 35 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000034  97%   业务执行
+000000000  01%   输出请求日志
+"}
+[2023-11-07 11:03:38]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-10", "msg":"/ - cost:
+StopWatch '请求耗时': running time = 139 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000001  01%   请求参数构建
+000000000  00%   cors
+000000137  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 11:04:00]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:04:00]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 7 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  14%   请求参数构建
+000000000  00%   cors
+000000006  84%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-07 11:04:00]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/user/getUserInfo -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:04:00]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/user/getUserInfo - cost:
+StopWatch '请求耗时': running time = 4 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  11%   请求参数构建
+000000000  00%   cors
+000000004  86%   业务执行
+000000000  02%   输出请求日志
+"}
+[2023-11-07 11:06:10]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 11:06:10]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 11:06:10]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Waiting for workers to finish."}
+[2023-11-07 11:06:10]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 11:06:11]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2", "msg":"Successfully waited for workers to finish."}
+[2023-11-07 11:06:11]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 11:06:11]|||{"logger":"o.s.a.r.l.SimpleMessageListenerContainer", "thread":"SpringApplicationShutdownHook", "msg":"Shutdown ignored - container is already stopped"}
+[2023-11-07 11:06:11]|||{"logger":"com.ehzyil.manager.ShutdownManager", "thread":"SpringApplicationShutdownHook", "msg":"====关闭后台任务任务线程池===="}
+[2023-11-07 11:06:11]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"SpringApplicationShutdownHook", "msg":"Shutting down Quartz Scheduler"}
+[2023-11-07 11:06:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutting down."}
+[2023-11-07 11:06:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED paused."}
+[2023-11-07 11:06:11]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"SpringApplicationShutdownHook", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete."}
+[2023-11-07 11:06:11]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closing ..."}
+[2023-11-07 11:06:11]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"SpringApplicationShutdownHook", "msg":"{dataSource-1} closed"}
+[2023-11-07 11:06:18]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Starting BlogApplication using Java 11.0.16.1 on DESKTOP-1H567GC with PID 8248 (D:\Study\Java\Code\ehzyil-blog\target\classes started by ehZyiL in D:\Study\Java\Code\ehzyil-blog)"}
+[2023-11-07 11:06:18]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"No active profile set, falling back to 1 default profile: "default""}
+[2023-11-07 11:06:18]|||{"logger":"o.h.validator.internal.util.Version", "thread":"background-preinit", "msg":"HV000001: Hibernate Validator 6.2.5.Final"}
+[2023-11-07 11:06:20]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Multiple Spring Data modules found, entering strict repository configuration mode"}
+[2023-11-07 11:06:20]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Bootstrapping Spring Data Redis repositories in DEFAULT mode."}
+[2023-11-07 11:06:20]|||{"logger":"o.s.d.r.c.RepositoryConfigurationDelegate", "thread":"main", "msg":"Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces."}
+[2023-11-07 11:06:20]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat initialized with port(s): 8080 (http)"}
+[2023-11-07 11:06:20]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Initializing ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 11:06:20]|||{"logger":"o.a.catalina.core.StandardService", "thread":"main", "msg":"Starting service [Tomcat]"}
+[2023-11-07 11:06:20]|||{"logger":"o.a.catalina.core.StandardEngine", "thread":"main", "msg":"Starting Servlet engine: [Apache Tomcat/9.0.69]"}
+[2023-11-07 11:06:21]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"main", "msg":"Initializing Spring embedded WebApplicationContext"}
+[2023-11-07 11:06:21]|||{"logger":"o.s.b.w.s.c.ServletWebServerApplicationContext", "thread":"main", "msg":"Root WebApplicationContext: initialization completed in 2382 ms"}
+[2023-11-07 11:06:21]|||{"logger":"c.a.d.s.b.a.DruidDataSourceAutoConfigure", "thread":"main", "msg":"Init DruidDataSource"}
+[2023-11-07 11:06:22]|||{"logger":"c.alibaba.druid.pool.DruidDataSource", "thread":"main", "msg":"{dataSource-1} inited"}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Using default implementation for ThreadExecutor"}
+[2023-11-07 11:06:24]|||{"logger":"o.quartz.core.SchedulerSignalerImpl", "thread":"main", "msg":"Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl"}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Quartz Scheduler v.2.3.2 created."}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.simpl.RAMJobStore", "thread":"main", "msg":"RAMJobStore initialized."}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+"}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance."}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.impl.StdSchedulerFactory", "thread":"main", "msg":"Quartz scheduler version: 2.3.2"}
+[2023-11-07 11:06:24]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1cca2e9d"}
+[2023-11-07 11:06:25]|||{"logger":"o.a.coyote.http11.Http11NioProtocol", "thread":"main", "msg":"Starting ProtocolHandler ["http-nio-8080"]"}
+[2023-11-07 11:06:25]|||{"logger":"o.s.b.w.e.tomcat.TomcatWebServer", "thread":"main", "msg":"Tomcat started on port(s): 8080 (http) with context path ''"}
+[2023-11-07 11:06:25]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Attempting to connect to: [192.168.18.130:5672]"}
+[2023-11-07 11:06:25]|||{"logger":"o.s.a.r.c.CachingConnectionFactory", "thread":"main", "msg":"Created new connection: rabbitConnectionFactory#1d40f597:0/SimpleConnection@1ae90cb9 [delegate=amqp://root@192.168.18.130:5672/, localPort= 53406]"}
+[2023-11-07 11:06:25]|||{"logger":"o.s.s.quartz.SchedulerFactoryBean", "thread":"main", "msg":"Starting Quartz Scheduler now"}
+[2023-11-07 11:06:25]|||{"logger":"org.quartz.core.QuartzScheduler", "thread":"main", "msg":"Scheduler quartzScheduler_$_NON_CLUSTERED started."}
+[2023-11-07 11:06:25]|||{"logger":"com.ehzyil.BlogApplication", "thread":"main", "msg":"Started BlogApplication in 8.234 seconds (JVM running for 9.753)"}
+[2023-11-07 11:06:46]|||{"logger":"o.a.tomcat.util.http.parser.Cookie", "thread":"http-nio-8080-exec-1", "msg":"A cookie header was received [Hm_lvt_2745ad927051c4bc7b7ee34b781df793=1698651177,1698651676;] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level."}
+[2023-11-07 11:06:46]|||{"logger":"o.a.c.c.C.[Tomcat].[localhost].[/]", "thread":"http-nio-8080-exec-1", "msg":"Initializing Spring DispatcherServlet 'dispatcherServlet'"}
+[2023-11-07 11:06:46]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Initializing Servlet 'dispatcherServlet'"}
+[2023-11-07 11:06:46]|||{"logger":"o.s.web.servlet.DispatcherServlet", "thread":"http-nio-8080-exec-1", "msg":"Completed initialization in 1 ms"}
+[2023-11-07 11:06:46]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/login -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 41 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000041  100%   请求基本信息
+"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"/-----------------------------------------------------------\"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Yauaa 7.3.0 (v7.3.0 @ 2022-06-25T10:33:24Z)               |"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"+-----------------------------------------------------------+"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| For more information: https://yauaa.basjes.nl             |"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"| Copyright (C) 2013-2022 Niels Basjes - License Apache 2.0 |"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":"\-----------------------------------------------------------/"}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.utils.YauaaVersion", "thread":"http-nio-8080-exec-1", "msg":""}
+[2023-11-07 11:06:47]|||{"logger":"n.b.p.useragent.config.ConfigLoader", "thread":"http-nio-8080-exec-1", "msg":"- Loaded 100 files in   93 ms using expression: classpath*:UserAgents/**/*.yaml"}
+[2023-11-07 11:06:48]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Building all needed matchers for the requested 11 fields."}
+[2023-11-07 11:06:48]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Initializing Analyzer data structures"}
+[2023-11-07 11:06:49]|||{"logger":"n.b.p.u.a.UserAgentStringMatchMaker", "thread":"http-nio-8080-exec-1", "msg":"Built in 806 msec : Hashmap 156583, Ranges map:2904"}
+[2023-11-07 11:06:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-1", "msg":"/login - cost:
+StopWatch '请求耗时': running time = 3010 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000054  02%   请求参数构建
+000000004  00%   cors
+000002950  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 11:06:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/admin/user/getUserInfo -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:06:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-3", "msg":"/admin/user/getUserInfo - cost:
+StopWatch '请求耗时': running time = 56 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  01%   请求参数构建
+000000000  00%   cors
+000000055  99%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 11:06:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/admin/user/getUserMenu -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:06:49]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-2", "msg":"/admin/user/getUserMenu - cost:
+StopWatch '请求耗时': running time = 29 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  02%   请求参数构建
+000000000  00%   cors
+000000028  98%   业务执行
+000000000  00%   输出请求日志
+"}
+[2023-11-07 11:06:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/admin -> 请求构建耗时: 
+StopWatch '请求参数构建': running time = 0 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  100%   请求基本信息
+"}
+[2023-11-07 11:06:50]|||{"logger":"com.ehzyil.filter.ReqRecordFilter", "thread":"http-nio-8080-exec-4", "msg":"/admin - cost:
+StopWatch '请求耗时': running time = 112 ms
+---------------------------------------------
+ms         %     Task name
+---------------------------------------------
+000000000  00%   请求参数构建
+000000000  00%   cors
+000000111  99%   业务执行
+000000000  00%   输出请求日志
+"}
