@@ -24,12 +24,12 @@
         </div>
         <template #footer>
             <div class="emoji-tabs">
-                <div class="emoji-tab" :class="{ 'on': emojiType === 0 }" @click="chooseType(0)">
-                    <img src="https://static.ttkwsd.top/emoji/re.png" width="22" height="22" />
-                </div>
-                <div class="emoji-tab" :class="{ 'on': emojiType === 1 }" @click="chooseType(1)">
-                    <img src="https://static.ttkwsd.top/emoji/tvby.png" width="22" height="22" />
-                </div>
+<!--                <div class="emoji-tab" :class="{ 'on': emojiType === 0 }" @click="chooseType(0)">-->
+<!--                    <img src="https://static.ttkwsd.top/emoji/re.png" width="22" height="22" />-->
+<!--                </div>-->
+<!--                <div class="emoji-tab" :class="{ 'on': emojiType === 1 }" @click="chooseType(1)">-->
+<!--                    <img src="https://static.ttkwsd.top/emoji/tvby.png" width="22" height="22" />-->
+<!--                </div>-->
                 <div class="emoji-tab" :class="{ 'on': emojiType === 2 }" @click="chooseType(2)">
                     <img src="https://static.ttkwsd.top/emoji/yan.png" width="22" height="22">
                 </div>

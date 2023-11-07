@@ -1,7 +1,7 @@
 package com.ehzyil.service.impl;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.Message;
 import com.ehzyil.domain.SiteConfig;
 import com.ehzyil.mapper.MessageMapper;
@@ -12,10 +12,8 @@ import com.ehzyil.model.vo.admin.MessageBackVO;
 import com.ehzyil.model.vo.front.MessageVO;
 import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.service.IMessageService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.service.ISiteConfigService;
 import com.ehzyil.service.RedisService;
-import com.ehzyil.service.UserWhiteListService;
 import com.ehzyil.utils.HTMLUtils;
 import com.ehzyil.utils.IpUtils;
 import com.ehzyil.utils.PageUtils;
@@ -30,12 +28,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.ehzyil.constant.CommonConstant.IS_NOT_CHECK;
 import static com.ehzyil.constant.RedisConstant.SITE_SETTING;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author ehzyil
@@ -44,33 +41,27 @@ import static com.ehzyil.constant.RedisConstant.SITE_SETTING;
 @Service
 public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements IMessageService {
     @Autowired
-   private   HttpServletRequest request;
+    private HttpServletRequest request;
     @Autowired
     private ISiteConfigService siteConfigService;
     @Autowired
     private RedisService redisService;
+
     @Override
     public List<MessageVO> listTalkHome() {
-       return getBaseMapper().selectMessageVoList();
+        return getBaseMapper().selectMessageVoList();
     }
-    @Autowired
-    private  UserWhiteListService userWhiteListService;
 
     @Override
     public void addMessage(MessageDTO message) {
         Message newMessage = new Message();
         //拷贝信息
-        BeanUtils.copyProperties(message,newMessage);
+        BeanUtils.copyProperties(message, newMessage);
         //获取站点信息
-        SiteConfig siteConfig=redisService.getObject(SITE_SETTING);
+        SiteConfig siteConfig = redisService.getObject(SITE_SETTING);
 
-        //设置是否检查
-        if (userWhiteListService.needToReview( StpUtil.getLoginIdAsInt())) {
-            newMessage.setIsCheck(Optional.ofNullable(siteConfig.getMessageCheck()).orElse(0));
-        } else {
-            newMessage.setIsCheck(IS_NOT_CHECK);
-        }
 
+        newMessage.setIsCheck(Optional.ofNullable(siteConfig.getMessageCheck()).orElse(0));
         //获取IP
         String ipAddress = IpUtils.getIpAddress(request);
         String ipSource = IpUtils.getIpSource(ipAddress);
@@ -97,6 +88,7 @@ public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> impl
         return new PageResult<>(messageBackVOList, count);
 
     }
+
     @Override
     public void updateMessageCheck(CheckDTO check) {
         // 修改留言审核状态
