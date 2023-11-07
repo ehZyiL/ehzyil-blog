@@ -7,8 +7,10 @@ import com.ehzyil.model.vo.admin.*;
 import com.ehzyil.model.vo.front.OnlineVO;
 import com.ehzyil.model.vo.front.PageResult;
 import com.ehzyil.model.vo.front.UserInfoVO;
+import io.swagger.models.auth.In;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -101,4 +103,13 @@ public interface IUserService extends IService<User> {
      * @param password 密码
      */
     void updateAdminPassword(PasswordDTO password);
+
+
+    /**
+     * 批量查询用户基本信息
+     *
+     * @param userIds
+     * @return
+     */
+    List<BaseUserInfoDTO> batchQueryBasicUserInfo(Collection<Integer> userIds);
 }

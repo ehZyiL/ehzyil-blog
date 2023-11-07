@@ -33,6 +33,9 @@ public class CommonConstant {
      */
     public static final String USER_NICKNAME = "用户";
 
+    public static final Integer IS_NOT_CHECK = 1;
+
+
     /**
      * 审核提醒
      */

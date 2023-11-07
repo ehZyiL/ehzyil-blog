@@ -25,17 +25,17 @@ import java.io.*;
 @RequiredArgsConstructor
 @Service("localUploadStrategyImpl")
 public class LocalUploadStrategyImpl extends AbstractUploadStrategyImpl {
-    /**
-     * 访问url
-     */
-    @Value("${upload.local.url}")
-    private String localUrl;
+//    /**
+//     * 访问url
+//     */
+//    @Value("${upload.local.url}")
+//    private String localUrl;
 
 
     /**
      * 本地路径
      */
-    @Value("${upload.local.path}")
+    @Value("${upload.local.tmp-upload-path}")
     private String localPath;
 
     /**

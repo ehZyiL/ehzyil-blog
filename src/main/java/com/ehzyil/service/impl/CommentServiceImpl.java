@@ -6,19 +6,18 @@ import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ehzyil.config.RedisClient;
 import com.ehzyil.domain.*;
 import com.ehzyil.mapper.ArticleMapper;
 import com.ehzyil.mapper.CommentMapper;
 import com.ehzyil.mapper.TalkMapper;
 import com.ehzyil.mapper.UserMapper;
-import com.ehzyil.model.dto.CheckDTO;
-import com.ehzyil.model.dto.CommentDTO;
-import com.ehzyil.model.dto.ConditionDTO;
-import com.ehzyil.model.dto.MailDTO;
+import com.ehzyil.model.dto.*;
 import com.ehzyil.model.vo.admin.CommentBackVO;
 import com.ehzyil.model.vo.front.*;
 import com.ehzyil.service.ICommentService;
 import com.ehzyil.service.RedisService;
+import com.ehzyil.service.UserWhiteListService;
 import com.ehzyil.utils.PageUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +60,8 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     private TalkMapper talkMapper;
     @Value("${blog.url}")
     private String websiteUrl;
+    @Resource
+    private UserWhiteListService userWhiteListService;
 
     @Override
     public List<RecentCommentVO> listRecentCommentVO() {
@@ -123,7 +124,11 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         SiteConfig siteConfig = redisService.getObject(SITE_SETTING);
 
         //设置is_check
-        comment.setIsCheck(Optional.ofNullable(siteConfig.getCommentCheck()).orElse(0));
+        if (userWhiteListService.needToReview(comment.getFromUid())) {
+            comment.setIsCheck(Optional.ofNullable(siteConfig.getCommentCheck()).orElse(0));
+        } else {
+            comment.setIsCheck(IS_NOT_CHECK);
+        }
 
         //插入数据库
         getBaseMapper().insert(comment);
@@ -318,5 +323,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         List<Comment> commentList = check.getIdList().stream().map(id -> Comment.builder().id(id).isCheck(check.getIsCheck()).build()).collect(Collectors.toList());
         this.updateBatchById(commentList);
     }
+
+
 }
 

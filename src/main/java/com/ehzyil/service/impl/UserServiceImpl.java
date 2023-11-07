@@ -10,7 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ehzyil.domain.BlogFile;
 import com.ehzyil.domain.User;
 import com.ehzyil.domain.UserRole;
+import com.ehzyil.exception.ServiceException;
 import com.ehzyil.mapper.*;
+import com.ehzyil.model.converter.UserConverter;
 import com.ehzyil.model.dto.*;
 import com.ehzyil.model.vo.admin.*;
 import com.ehzyil.model.vo.front.OnlineVO;
@@ -25,6 +27,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -373,6 +376,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         String newPassword = SecurityUtils.sha256Encrypt(password.getNewPassword());
         user.setPassword(newPassword);
         getBaseMapper().updateById(user);
+    }
+
+    @Override
+    public List<BaseUserInfoDTO> batchQueryBasicUserInfo(Collection<Integer> userIds) {
+        List<User> userList = getBaseMapper().selectBatchIds(userIds);
+        if (CollectionUtils.isEmpty(userList)) {
+            throw new ServiceException("");
+        }
+        return userList.stream().map(UserConverter::toDTO).collect(Collectors.toList());
     }
 
     @Override

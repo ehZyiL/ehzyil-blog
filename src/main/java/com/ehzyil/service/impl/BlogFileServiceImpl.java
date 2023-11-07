@@ -41,7 +41,7 @@ public class BlogFileServiceImpl extends ServiceImpl<BlogFileMapper, BlogFile> i
     /**
      * 本地路径
      */
-    @Value("${upload.local.path}")
+    @Value("${upload.local.tmp-upload-path}")
     private String localPath;
 
     @Autowired

@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * 分类DTO
-
  */
 @Data
 @ApiModel(description = "分类DTO")
